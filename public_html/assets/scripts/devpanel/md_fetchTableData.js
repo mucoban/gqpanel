@@ -11,14 +11,11 @@ function fetchTableData(data) {
     console.log(data);
 
     $.ajax({
-        // url: "http://piktuscreative.com/gqpanel/public/panel/home/index",
         url: "panel/content/fetchTableData",
         data: data,
         method: "get",
         success:
             function (result) {
-
-                console.log(result);
 
                 result = JSON.parse(result);
 
@@ -36,13 +33,10 @@ function fetchTableData(data) {
                         clone.attr("data-itemid", ele.id);
                         clone.attr("data-typeid", data.typeId);
 
-                        // const orderInput = clone.find("[name='clistit[" + ele.id + "][orderNumber]']");
                         const orderInput = clone.find("[name='clistit[0][orderNumber]']");
                         orderInput.attr("name", "clistit[" + ele.id + "][orderNumber]");
                         if (ele.order !== undefined) orderInput.val(ele.order);
                         if (ele.orderNumber !== undefined) orderInput.val(ele.orderNumber);
-
-                        // console.log(orderInput.length);
 
                         if (data.typeId === "-3") {
                             const title = ele.title;
@@ -65,8 +59,14 @@ function fetchTableData(data) {
                             const active = ele.active === "1" ? "on" : "0";
                             clone.find(".js-clist__switch").attr("data-mode", active);
                         } else {
+                            const isChild = !!ele.ct_titles[0].parent_list_item;
+                            const parentLiTitle = isChild ?
+                                ' (' + result.items.find(function (ci) { return ci.id === ele.ct_titles[0].parent_list_item }).ct_titles[0].title + ')'
+                                : '';
                             const title = ele.ct_titles[0].title;
-                            clone.find(".js-clist__title").html('<span class="clist__itemId">' + ele.id + ' - </span> '+ title);
+                            const clist__title = clone.find(".js-clist__title");
+                            isChild ? clist__title.addClass('sub-menu') : clist__title.removeClass('sub-menu');
+                            clist__title.html('<span class="clist__itemId">' + ele.id + ' - </span> '+ title + parentLiTitle);
                             const active = ele.active === "1" ? "on" : "0";
                             clone.find(".js-clist__switch").attr("data-mode", active);
                         }

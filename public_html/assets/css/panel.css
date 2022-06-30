@@ -793,6 +793,9 @@ body.-loginPage {
 .clist__table tbody b {
   font-weight: 500;
 }
+.clist__table .sub-menu {
+  font-size: 12px;
+}
 .clist__seemsg {
   cursor: pointer;
 }

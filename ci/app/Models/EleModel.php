@@ -101,7 +101,7 @@ class EleModel extends Model
 
         /*********************************************/
 
-        if (defined("NOW")) {
+        if (defined("NOW2")) {
             echo "<pre>"; print_r($this->sql); echo "</pre>"; die;
         }
 
@@ -811,44 +811,36 @@ class EleModel extends Model
                     if ($onlyTitle === false || ($onlyTitle === true && $firstCtTitlesSwitch === false && $d === "ct_titles")) {
 
                         if ($d === "ct_titles") $firstCtTitlesSwitch = true;
-
                         $sql = "select * from " . $d . " where parent_id = " . $d_a->id;
 
                         if ($selectCtsLangid !== false) {
-
                             $sql .= " and lang_id = " . $selectCtsLangid;
-
                             if ($orderby !== null) $sql  .= " order by `order`";
-
                         }
-
                         if ($onlyTitle !== false) {
                             if ($orderby === null) $sql  .= " order by `order`";
-                            $sql .= " limit 1";
+                            $sql .= " limit 3";
                         }
-//                        if (defined("NOW")) {
-//                            echo 'sql:' . $sql; die;
-//                        }
+
 
                         $query = $this->db->query($sql);
                         $res = $query->getResult();
 
-//                        echo ($this->db->getLastQuery()); //die;
+                        if (isset($res[2]->title) && strstr($res[2]->title, 'parent-')) {
+                            $res[0]->parent_list_item = str_replace('parent-', '', $res[2]->title);
+                        }
 
+                        if (defined("NOW")) {
+                            echo "<pre>"; print_r($res); echo "</pre>"; die;
+                        }
                         $eles[$k_a]->{$d} = $res;
-
                     }
 
                 }
             }
         }
 
-//        if (defined("NOW")) {
-//            echo "eles:<pre>"; print_r($eles); echo "</pre>"; die;
-//        }
-
         return $eles;
-
     }
 
     /*********************************************/

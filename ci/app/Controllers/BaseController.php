@@ -83,6 +83,21 @@ class BaseController extends Controller
             "orderby" => "eles.orderNumber",
         ]);
 
+        $deleteds = 0;
+        foreach ($this->headerMenu as $k => $v) {
+            if (isset($v->ct_titles[2]->title) && strstr($v->ct_titles[2]->title, 'parent-')) {
+                array_splice($this->headerMenu, $k - $deleteds, 1); $deleteds++;
+                $parent_list_item_id = str_replace('parent-', '', $v->ct_titles[2]->title);
+                foreach ($this->headerMenu as $k_b => $v_b) {
+                    if ($v_b->id === $parent_list_item_id) {
+                        if (isset($this->headerMenu[$k_b]->children)) $this->headerMenu[$k_b]->children[] = $v;
+                        else $this->headerMenu[$k_b]->children = [$v];
+                        break;
+                    }
+                }
+            }
+        }
+
         $foundSeo = null;
         foreach ($seos as $k => $d) {
             if (strlen($d->ct_titles[1]->title) > 2 && strstr($_SERVER['REQUEST_URI'], $d->ct_titles[1]->title)) {
