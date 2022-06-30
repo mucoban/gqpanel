@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1017" height="1017" viewBox="0 0 1017 1017">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#96cbf9"/>
+      <stop offset="1" stop-color="#59a3e6"/>
+    </radialGradient>
+  </defs>
+  <path id="Polygon_1" data-name="Polygon 1" d="M374.336,268.328c55.279-110.557,213.049-110.557,268.328,0l265.795,531.59C958.327,899.653,885.8,1017,774.295,1017H242.705C131.2,1017,58.673,899.653,108.541,799.918Z" fill="url(#radial-gradient)"/>
+</svg>

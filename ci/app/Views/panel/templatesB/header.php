@@ -1,0 +1,1 @@
+<body<?=defined("CEDITBODY") ? ' class="-cedit"' : "" ?>>

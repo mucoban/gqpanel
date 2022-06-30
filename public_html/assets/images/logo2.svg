@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="264.874" height="34.722" viewBox="0 0 264.874 34.722">
+  <g id="Group_1" data-name="Group 1" transform="translate(-349.126 -409.639)">
+    <text id="PAWESTONEDRIVEWAYS" transform="translate(377 434)" fill="#ff6900" font-size="20" font-family="lato" font-weight="700"><tspan x="0" y="0" fill="#000">PAWESTONE</tspan><tspan y="0" fill="#ff6900">DRIVEWAYS</tspan></text>
+    <g id="logodüz" transform="translate(-63.37 154.043) rotate(-17)">
+      <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(317 374)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="10" height="12" stroke="none"/>
+        <rect x="0.5" y="0.5" width="9" height="11" fill="none"/>
+      </g>
+      <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(326 374)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="10" height="12" stroke="none"/>
+        <rect x="0.5" y="0.5" width="9" height="11" fill="none"/>
+      </g>
+      <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(326 385)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="10" height="12" stroke="none"/>
+        <rect x="0.5" y="0.5" width="9" height="11" fill="none"/>
+      </g>
+      <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(317 385)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="10" height="12" stroke="none"/>
+        <rect x="0.5" y="0.5" width="9" height="11" fill="none"/>
+      </g>
+      <line id="Line_1" data-name="Line 1" y2="4" transform="translate(317.5 396.5)" fill="none" stroke="#707070" stroke-width="1"/>
+      <line id="Line_2" data-name="Line 2" y2="4" transform="translate(335.5 370)" fill="none" stroke="#707070" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

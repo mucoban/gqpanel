@@ -1,0 +1,14 @@
+.idea/
+ci_nesibe/node_modules/
+ci_nesibe/.env
+ci_nesibe/writable/logs/
+ci_nesibe/writable/debugbar/
+ci_nesibe/writable/session/
+ci_nesibe/env
+ci_nesibe/package-lock.json
+ci_nesibe/.idea
+ci_nesibe/PHPMailer/
+nesibe.com/assets/images/
+nesibe.com/uploads/
+notes
+todo.txt
