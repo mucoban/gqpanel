@@ -26,8 +26,8 @@
           $sub_homepage =
           $sub_homepage__open =
           $sub_homeSlider =
-          $sub_homeBusinessFields =
-          $sub_homePartners =
+          $sub_homeOurPackages =
+          $sub_homeProgression =
           $sub_bfields__open =
           $sub_bfieldsBFs =
           $sub_partners__open =
@@ -70,11 +70,11 @@
           else if (uri_string() === "panel/content/list/39/anasayfa-slider") {
               $m_pages = $sub_homepage__open = $sub_homeSlider = true;
           }
-          else if (uri_string() === "panel/content/list/40/business-fields") {
-              $m_pages = $sub_homepage__open = $sub_homeBusinessFields = true;
+          else if (uri_string() === "panel/content/list/40/our-packages") {
+              $m_pages = $sub_homepage__open = $sub_homeOurPackages = true;
           }
-          else if (uri_string() === "panel/content/list/41/partners") {
-              $m_pages = $sub_homepage__open = $sub_homePartners = true;
+          else if (uri_string() === "panel/content/list/41/proggression") {
+              $m_pages = $sub_homepage__open = $sub_homeProgression = true;
           }
           else if (uri_string() === "panel/content/list/42/business-fields") {
               $m_pages = $sub_bfields__open = $sub_bfieldsBFs = true;
@@ -245,13 +245,13 @@
                                 <i class="material-icons">flax</i>
                                 <p><?=_dp("Sliders")?></p>
                             </a>
-                            <a class="nav-link <?=$sub_homeBusinessFields ? "activ" : "" ?>" href="panel/content/list/40/business-fields">
+                            <a class="nav-link <?=$sub_homeOurPackages ? "activ" : "" ?>" href="panel/content/list/40/our-packages">
                                 <i class="material-icons">flax</i>
-                                <p><?=_dp("Business Fields")?></p>
+                                <p><?=_dp("Our Packages")?></p>
                             </a>
-                            <a class="nav-link <?=$sub_homePartners ? "activ" : "" ?>" href="panel/content/list/41/partners">
+                            <a class="nav-link <?=$sub_homeProgression ? "activ" : "" ?>" href="panel/content/list/41/progression">
                                 <i class="material-icons">flax</i>
-                                <p><?=_dp("Partners")?></p>
+                                <p><?=_dp("Progression")?></p>
                             </a>
                         </div>
                     </div>

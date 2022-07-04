@@ -150,13 +150,11 @@ class BaseController extends Controller
         if (!$this->session->has("lang_id")) {
             $ar = array_values($this->langs);
             $this->session->set("lang_id", array_shift($ar)->id);
+            $languages = $this->db->table('langs')
+                ->where('id', $this->session->lang_id)
+                ->get()->getResult();
+            $this->session->set("lang_abb", $languages[0]->abb);
         }
-
-        if (!$this->session->has("langs")) {
-            $this->session->set("langs", $this->langs);
-        }
-
-
     }
 
 }

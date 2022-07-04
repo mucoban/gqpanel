@@ -1,7 +1,14 @@
+<div class="hp-bg">
+    <div class="c-1"></div>
+    <div class="c-2"></div>
+    <div class="c-3">
+        <img src="assets/images/bg-triangle.svg" alt="bg-triangle">
+    </div>
+</div>
 <div class="container tc hp-section">
     <div class="wsslides">
         <div class="wsslides-row">
-            <?php foreach ($page[0]->ct_files[0]->fileName as $k => $v) { ?>
+            <?php foreach ($sliders[0]->ct_files[0]->fileName as $k => $v) { ?>
                 <div class="wsslides-col">
                     <div class="wsslides-item">
                         <img src="uploads/files/<?=$v?>" alt="wsslides-item">
@@ -11,64 +18,38 @@
         </div>
         <div class="wsslides-text">
             <div class="wsslides-text-inner">
-                <?=$page[0]->ct_txtbox[0]->value?>
+                <?=$sliders[0]->ct_txtbox[0]->value?>
             </div>
-            <p class="wsslides-text-btn"><a <?=$page[0]->ct_titles[2]->title ? 'href="' . $page[0]->ct_titles[2]->title . '"' : '' ?>>
-                    <img src="assets/images/mail-white.svg" alt="msg"><?=$page[0]->ct_titles[1]->title?></a></p>
+            <p class="wsslides-text-btn"><a <?=$sliders[0]->ct_titles[2]->title ? 'href="' . $sliders[0]->ct_titles[2]->title . '"' : '' ?>>
+                    <img src="assets/images/mail-white.svg" alt="msg"><?=$sliders[0]->ct_titles[1]->title?></a></p>
         </div>
     </div>
 </div>
 
 <div class="hpackages hp-section">
     <div class="container">
-        <div class="hpackages-headline">PAKETLERİMİZ</div>
+        <div class="hpackages-headline"><?=$page[0]->ct_titles[1]->title?></div>
         <div class="hpackages-pwrapper">
-            <div class="hpackages-pitem">
-                <img src="assets/images/paket-01.png" alt="wsslides-item">
-                <div class="title">Wordpress</div>
-                <div class="desc">Wordpress tema kurulumu ve içeriklerinizin yüklenmesi,
-                    <br>Google analytics kurulumu
+            <?php foreach ($packages as $k => $v) { ?>
+                <div class="hpackages-pitem">
+                    <img src="uploads/files/<?=$v->ct_files[0]->fileName[0]?>" alt="wsslides-item">
+                    <div class="title"><?=$v->ct_titles[0]->title?></div>
+                    <div class="desc"><?=$v->ct_txtbox[0]->value?></div>
                 </div>
-            </div>
-            <div class="hpackages-pitem">
-                <img src="assets/images/paket-02.png" alt="wsslides-item">
-                <div class="title">Kurumsal</div>
-                <div class="desc">Size özel tasarım çalışması,
-                    front-end çalışması,
-                    back-end çalışması ve admin paneli kurulumu,
-                    içeriklerinizin yüklenmesi,
-                    google analytics kurulumu,</div>
-            </div>
-            <div class="hpackages-pitem">
-                <img src="assets/images/paket-03.png" alt="wsslides-item">
-                <div class="title">E-ticaret</div>
-                <div class="desc">Yakında...</div>
-            </div>
+            <?php }?>
         </div>
     </div>
 </div>
 
 <div class="hpprocess hp-section">
     <div class="container">
-        <div class="hpprocess-headline">SÜREÇ NASIL İŞLİYOR</div>
-        <div class="hpprocess-article">
-            <div class="hpprocess-title">Tasarım</div>
-            <div class="hpprocess-desc">Bu aşamada fikirleriniz alarak, hayalinizdeki tasarımı gerçeğe döküyoruz.
-                Siz tasarımı beğenip, onaylayladıktan sonra diğer aşamaya geçiyoruz.
+        <div class="hpprocess-headline"><?=$page[0]->ct_titles[2]->title?></div>
+        <?php foreach ($proggression as $k => $v) { ?>
+            <div class="hpprocess-article">
+                <div class="hpprocess-title"><?=$v->ct_titles[0]->title?></div>
+                <div class="hpprocess-desc"><?=$v->ct_txtbox[0]->value?></div>
             </div>
-        </div>
-        <div class="hpprocess-article">
-            <div class="hpprocess-title">Front-End</div>
-            <div class="hpprocess-desc">Bu aşamada onayladığınız tasarımı, koda dökerek, alan adınıza bağlı hostinge yüklüyoruz.
-                Tarayıcınızan alan adınızı girerek, bu aşamada çalışmayı görebiliyorsunuz.</div>
-        </div>
-        <div class="hpprocess-article">
-            <div class="hpprocess-title">Back-End</div>
-            <div class="hpprocess-desc">Bu aşamada, front-end çalışması tamamlanmış ve hostinge yüklenmiş websitenizin,
-                back-end çalışması yapıyoruz. Admin panelini websiteye entegre ediyoruz. Resim, video ve textlerinizi
-                websitenize yükleyip, size admin panelini tanıtıyoruz. Sonrasında e-mail, analytics ve haritalar kurulumunu
-                yapıp projeyi tamamlıyoruz.</div>
-        </div>
+        <?php } ?>
     </div>
 </div>
 
