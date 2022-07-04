@@ -495,23 +495,24 @@ js_sortables.each(function () {
             }
 
             childs.each(function (index) {
-
                 const item = $(this);
-                const itemIndex = item.index();
-                var adding = 0;
+                if (clist && item.hasClass('js-clistTrAdded') || !clist) {
+                    const itemIndex = item.index();
+                    var adding = 0;
 
-                if (mainStartIndex < stopIndex && itemIndex < stopIndex) {
-                    adding = -1;
-                    if (typeof clistSortTypeDesc !== 'undefined') adding = 1;
-                } else if (mainStartIndex > stopIndex && itemIndex > stopIndex) {
-                    adding = 1;
-                    if (typeof clistSortTypeDesc !== 'undefined') adding = -1;
+                    if (mainStartIndex < stopIndex && itemIndex < stopIndex) {
+                        adding = -1;
+                        if (typeof clistSortTypeDesc !== 'undefined' && clistSortTypeDesc) adding = 1;
+                    } else if (mainStartIndex > stopIndex && itemIndex > stopIndex) {
+                        adding = 1;
+                        if (typeof clistSortTypeDesc !== 'undefined' && clistSortTypeDesc) adding = -1;
+                    }
+
+                    const thisItemId = item.attr(dataidStr);
+                    const thisOrderNumber = item.find("[name='" + itemStr + "[" + thisItemId + "][orderNumber]']").val();
+                    item.find("[name='" + itemStr + "[" + thisItemId + "][orderNumber]']").val(adding + parseInt(thisOrderNumber)).trigger("change");
+
                 }
-
-                const thisItemId = item.attr(dataidStr);
-                const thisOrderNumber = item.find("[name='" + itemStr + "[" + thisItemId + "][orderNumber]']").val();
-                item.find("[name='" + itemStr + "[" + thisItemId + "][orderNumber]']").val(adding + parseInt(thisOrderNumber)).trigger("change");
-
             });
 
             if (clist) {
@@ -1079,58 +1080,18 @@ $(".js-cedit__imupc").on("click", ".js-remove", function () {
         const boxIndexM = box.index() - 1;
         const fArI = strAr[boxIndexM];
 
-        console.log(strAr);
-        console.log(fArI);
-        console.log(box.attr("data-id"));
-
         if ((fArI) === (box.attr("data-id"))) {
-
             strAr.splice(boxIndexM, 1);
-
         } else {
-
             alert("Error");
             return;
-
         }
 
         str = strAr.join();
         dbItext.val(str)
 
         box.remove();
-
-        for(var i = 0; i < langs.length; i++) {
-
-            if (imupRow__langId !== langs[i].id) {
-
-                console.log("langs[i].id: " + langs[i].id);
-
-               const curImupcRow = $(".js-cedit__imupcRow[data-langid='"
-                   + langs[i].id + "'][data-order='"
-                   + imupRow__order + "']");
-
-               // console.log(".js-cedit__imupcRow[data-langid='"
-               //     + langs[i].id + "'][data-order='"
-               //     + imupRow__order + "']");
-
-               const curDbItext = $("[name='ct_files["
-                   + langs[i].id + "]["
-                   + imupRow__order  + "]']");
-
-               // console.log("curImupcRow.length: ");
-               // console.log(curImupcRow.length);
-
-               const curBox = curImupcRow.find(".js-cedit__imupcBox[data-id='" + fArI + "']");
-               curBox.remove();
-
-               curDbItext.val(str);
-
-            }
-
-        }
-
     }
-
 });
 
 
@@ -1619,7 +1580,7 @@ function fetchTableData(data) {
                             const active = ele.active === "1" ? "on" : "0";
                             clone.find(".js-clist__switch").attr("data-mode", active);
                         } else {
-                            const isChild = !!ele.ct_titles[0].parent_list_item;
+                            const isChild = !!ele.ct_titles[0].parent_list_item && result.items.find(function (ci) { return ci.id === ele.ct_titles[0].parent_list_item });
                             const parentLiTitle = isChild ?
                                 ' (' + result.items.find(function (ci) { return ci.id === ele.ct_titles[0].parent_list_item }).ct_titles[0].title + ')'
                                 : '';

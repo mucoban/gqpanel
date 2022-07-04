@@ -60,7 +60,7 @@
                             <i class="material-icons">grading</i>
                         </div>
                         <p class="card-category">Footer <?=_dp("Menü") ?> 2</p>
-                        <h3 class="card-title"><?=$countfooterMenu2?></h3>
+                        <h3 class="card-title"></h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">

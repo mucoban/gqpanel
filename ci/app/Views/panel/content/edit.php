@@ -2,12 +2,10 @@
     <div class="card">
         <div class="card-header card-header-primary">
             <?php
-                $duzenlemeStr = 'Düzenleme';
-                $duzenlemeStr2 = 'Eleman düzenleme';
-                if (!empty($showMode)) { $duzenlemeStr = ''; $duzenlemeStr2 = ''; }
+                $duzenlemeStr = 'Edit';
+                if (!empty($showMode)) { $duzenlemeStr = ''; }
             ?>
-            <h4 class="card-title"><?=!isset($new) ? _dp($duzenlemeStr) : _dp("Yeni") . " " . $cts["eleTitle"] ?></h4>
-            <p class="card-category"><?=!isset($new) ? _dp($duzenlemeStr2) : _dp("Eleman oluşturma") ?></p>
+            <h4 class="card-title"><?=!isset($new) ? _dp($duzenlemeStr) : _dp("New") . " " . $cts["eleTitle"] ?></h4>
         </div>
         <div class="card-body">
             <form class="cedit__form" method="post" data-savemode="" data-new="<?=!isset($new) ? "0" : "1" ?>"
@@ -24,7 +22,7 @@
                             <div class="card-header card-header-tabs card-header-primary cedit__langbar">
                                 <div class="nav-tabs-navigation">
                                     <div class="nav-tabs-wrapper">
-                                        <span class="nav-tabs-title"><?=_dp("Diller")?>:</span>
+                                        <span class="nav-tabs-title"><?=_dp("Languages")?>:</span>
                                         <ul class="nav nav-tabs" data-tabs="tabs">
                                             <?php foreach ($langs as $k => $d) { ?>
                                                 <li class="nav-item">
@@ -489,7 +487,7 @@
 
                 <?php if (empty($showMode)) { ?>
                     <button type="submit" class="btn btn-primary pull-right float-right cedit__submitbtn">
-                        <span class="cedit__submitbtnNormal"><?=!isset($new) ? _dp("KAYDET") : _dp("OLUŞTUR") ?></span>
+                        <span class="cedit__submitbtnNormal"><?=!isset($new) ? _dp("SAVE") : _dp("OLUŞTUR") ?></span>
                         <span class="cedit__submitbtnOngoing">
                          <div class="prelO">
                                     <div class="prel">

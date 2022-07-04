@@ -569,8 +569,6 @@ class EleModel extends Model
                 $insdata["orderNumber"] = 1;
             }
 
-//            echo " insdata:<pre>"; print_r($insdata); echo "</pre>"; die;
-
             $this->db->table("eles")->insert($insdata);
 
             $insertId = $this->db->insertID();
@@ -578,13 +576,11 @@ class EleModel extends Model
         } else if (isset($ar_data["id"])) {
 
             $builder->where(['id' => $ar_data["id"]]);
-//            $builder->update(["active" => "1"]);
             $data = [];
             if (isset($ar_data["active"])) { $data["active"] = $ar_data["active"]; }
 
             if (count($data) > 0) {
                 $builder->update($data);
-//                echo ($this->db->getLastQuery()); die;
             }
 
         }
@@ -593,18 +589,12 @@ class EleModel extends Model
 
         $this->bindingTables = $this->bindiginsModel->typeBindings($this->type_id);
 
-//        echo "<pre>"; print_r($ar_data); echo "</pre>"; die;
-
         foreach($this->bindingTables as $k => $d) {
-//            echo $d;
-//            echo "<pre>"; print_r($ar_data); echo "</pre>";
 
-//                $langs = [["id" => 0], ["id" => 1],];
                 $langs = $this->langs;
 
                 foreach($langs as $k_b => $d_b) {
 
-//                    $clang_id = $d_b["id"];
                     $clang_id = $d_b->id;
 
                     $builder = $this->db->table($d);
@@ -625,22 +615,17 @@ class EleModel extends Model
                                 $data["lang_id"] = $clang_id;
                                 $data["order"] = $k_c;
                                 $builder->insert($data);
-//                                            echo ($this->db->getLastQuery());
 
                             } else {
-//                                    echo $d . ":<pre>"; print_r($data); echo "</pre>";
                                 $builder->where(['parent_id' => $ar_data["id"], 'lang_id' => $clang_id, 'order' => $k_c]);
                                 $builder->update($data);
 
                                 if ($d === "ct_files") {
-//                                    echo ($this->db->getLastQuery()); die;
                                 }
                             }
                         }
 
                     }
-
-//                  echo ($this->db->getLastQuery()) . "<br>";
 
                 }
 
@@ -654,8 +639,6 @@ class EleModel extends Model
     }
 
     public function delete_content($ar = null) {
-
-//        echo "<pre>"; print_r($ar); echo "</pre>"; die;
 
         $this->type_id = (int) $ar["type_id"];
 
@@ -902,6 +885,7 @@ class EleModel extends Model
         $ext = $file->getClientExtension();
 
         $extentionsPic = [
+            "svg",
             "png",
             "jpg",
             "jpeg",

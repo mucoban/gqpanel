@@ -59,7 +59,7 @@ function fetchTableData(data) {
                             const active = ele.active === "1" ? "on" : "0";
                             clone.find(".js-clist__switch").attr("data-mode", active);
                         } else {
-                            const isChild = !!ele.ct_titles[0].parent_list_item;
+                            const isChild = !!ele.ct_titles[0].parent_list_item && result.items.find(function (ci) { return ci.id === ele.ct_titles[0].parent_list_item });
                             const parentLiTitle = isChild ?
                                 ' (' + result.items.find(function (ci) { return ci.id === ele.ct_titles[0].parent_list_item }).ct_titles[0].title + ')'
                                 : '';

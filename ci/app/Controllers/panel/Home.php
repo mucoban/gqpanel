@@ -11,13 +11,6 @@ class Home extends BaseController
             "thisController" => $this,
         ];
 
-        $footerMenu2 = $this->eleModel->getAll([
-            "type_id" => 16,
-            "lang_id" => $this->session->lang_id,
-            "orderby" => "eles.orderNumber",
-        ]);
-        $data['countfooterMenu2'] = count($footerMenu2);
-
         $footerMenu = $this->eleModel->getAll([
             "type_id" => 8,
             "lang_id" => $this->session->lang_id,

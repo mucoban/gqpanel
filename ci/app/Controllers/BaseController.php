@@ -62,7 +62,8 @@ class BaseController extends Controller
         $query = $this->db->query("select * from langs where active = 1 order by `order`");
         $this->langs = $query->getResult();
 
-        $this->current_lang_id = $this->langs[0]->id;
+
+        $this->current_lang_id = $this->session->lang_id ?: $this->langs[0]->id;
 
         $this->eleModel = new \App\Models\EleModel($this->db, null, $this->langs, $this->allCts);
         $this->bindingsModel = new \App\Models\BindingsModel();
@@ -75,6 +76,16 @@ class BaseController extends Controller
             "where" => [["eles", "active", "=", 1,]],
             "orderby" => "eles.orderNumber",
         ]);
+
+        $foundSeo = null;
+        foreach ($seos as $k => $d) {
+            if (strlen($d->ct_titles[1]->title) > 2 && strstr($_SERVER['REQUEST_URI'], $d->ct_titles[1]->title)) {
+                $foundSeo = $d;
+                break;
+            }
+        }
+        if ($foundSeo === null) $foundSeo = $seos[0];
+        $this->seo = $foundSeo;
 
         $this->headerMenu = $this->eleModel->getAll([
             "type_id" => 33,
@@ -98,15 +109,27 @@ class BaseController extends Controller
             }
         }
 
-        $foundSeo = null;
-        foreach ($seos as $k => $d) {
-            if (strlen($d->ct_titles[1]->title) > 2 && strstr($_SERVER['REQUEST_URI'], $d->ct_titles[1]->title)) {
-                $foundSeo = $d;
-                break;
-            }
-        }
-        if ($foundSeo === null) $foundSeo = $seos[0];
-        $this->seo = $foundSeo;
+        $this->footer = $this->eleModel->getAll([
+            "type_id" => 15,
+            "lang_id" => $this->current_lang_id,
+            "where" => [["eles", "active", "=", 1,]],
+            "orderby" => "eles.orderNumber",
+        ]);
+
+        $this->footerMenu = $this->eleModel->getAll([
+            "type_id" => 8,
+            "lang_id" => $this->current_lang_id,
+            "where" => [["eles", "active", "=", 1,]],
+            "orderby" => "eles.orderNumber",
+        ]);
+
+        $this->footerContact = $this->eleModel->getAll([
+            "type_id" => 38,
+            "lang_id" => $this->current_lang_id,
+            "where" => [["eles", "active", "=", 1,]],
+            "orderby" => "eles.orderNumber",
+        ]);
+        $this->footerContact = assignWhFiles($this, $this->footerContact);
 
         /*********************************************/
 
@@ -122,24 +145,17 @@ class BaseController extends Controller
             $json = json_decode($fread, true);
 
             $this->session->set($panelStr . "lang_array", $json);
-
         }
 
         if (!$this->session->has("lang_id")) {
-
             $ar = array_values($this->langs);
-
             $this->session->set("lang_id", array_shift($ar)->id);
-
         }
 
         if (!$this->session->has("langs")) {
-
             $this->session->set("langs", $this->langs);
-
         }
 
-//        $this->session->set("lang_id", 8);
 
     }
 

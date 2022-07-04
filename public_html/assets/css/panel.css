@@ -9,8 +9,18 @@
 .card .card-header-primary:not(.card-header-icon):not(.card-header-text),
 .card.card-rotate.bg-primary .back,
 .card.card-rotate.bg-primary .front {
-  background: linear-gradient(60deg, #cecece, #939194);
+  background: #fff;
+  color: #767676;
   box-shadow: 0 4px 20px 0 rgba(253, 220, 220, 0.14), 0 7px 10px -5px rgba(74, 71, 74, 0.4);
+}
+
+.nav-tabs .nav-item .nav-link {
+  margin: 0 5px;
+  background: #cacaca;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background: #7fa9c4;
 }
 
 .card-title,

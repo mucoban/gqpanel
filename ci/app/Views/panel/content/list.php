@@ -11,8 +11,8 @@
                         <input type="hidden" name="typeId" value="<?=$typeId?>">
 
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title"><?=$cts["eleTitle"]?> <?=_dp("Listesi")?></h4>
-                            <p class="card-category"> <?=_dp("Listele, filtrele")?> <?=mb_strtolower($cts["eleTitle"])?></p>
+                            <h4 class="card-title"><?=$cts["eleTitle"]?></h4>
+                            <p class="card-category"></p>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive clist js-clist" data-mode="saving">
@@ -20,14 +20,14 @@
                                 <div>
                                     <?php if(!strstr($_SERVER['REQUEST_URI'], '/-4/users') && (empty($showMode))){?>
                                         <button type="button" class="btn btn-primary pull-right float-right js-clist_newbtn">
-                                            <span><?=_dp("YENİ")?></span>
+                                            <span><?=_dp("NEW")?></span>
                                         </button>
                                     <?php } ?>
 
                                 </div>
 
                                 <div class="input-group no-border clist__search">
-                                    <input type="text" value="" class="form-control js-clist__searchItext" placeholder="<?=_dp("ARA...")?>">
+                                    <input type="text" value="" class="form-control js-clist__searchItext" placeholder="<?=_dp("Search")?>">
                                     <button type="submit" class="btn btn-white btn-round btn-just-icon js-clist__searchBtn">
                                         <i class="material-icons">search</i>
                                         <div class="ripple-container"></div>
@@ -96,8 +96,8 @@
 
                                 <table class="table clist__table js-clist__table<?=$isAdmin ? ' -adminOn' : ''?>" data-typeid="<?=$typeId?>">
                                     <thead class=" text-primary">
-                                    <th><?=_dp("Title")?></th>
-                                    <th class="text-right"><?=_dp("İşlemler")?></th>
+                                        <th><?=_dp("Title")?></th>
+                                        <th class="text-right"><?=_dp("Operations")?></th>
                                     </thead>
                                     <tbody class="js-sortable" data-itemstr="clistit"  data-dataidstr="data-itemid">
                                     <tr class="clist__tablePrel">
@@ -123,7 +123,7 @@
                                         <td class="js-clist__title"></td>
                                         <td class="td-actions text-right">
                                             <?php if (empty($showMode)) { ?>
-                                                <div class="clist__orderbtnsec" title="<?=_dp("Sırala")?>">
+                                                <div class="clist__orderbtnsec" title="<?=_dp("Order")?>">
                                                     <a class="eltypeadd__acontItemOrderbtn clist__orderbtnsecLink js-order">
                                                         <svg class="eltypeadd__acontItemOrderbtnSvg clist__orderbtnsecLinkSvg" height="384pt" viewBox="0 -53 384 384" width="384pt" xmlns="http://www.w3.org/2000/svg"><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/></svg>
                                                     </a>
@@ -133,7 +133,7 @@
                                                     <div class="clist__switchBg1"></div>
                                                     <div class="clist__switchBall">on</div>
                                                 </div>
-                                                <button type="button" rel="tooltip" title="<?=_dp("Düzenle")?>"
+                                                <button type="button" rel="tooltip" title="<?=_dp("Edit")?>"
                                                         class="btn btn-primary btn-link btn-sm js-clist_editbtn">
                                                     <i class="material-icons">edit</i>
                                                 </button>
@@ -141,7 +141,7 @@
 
 
                                             <?php if(0||!strstr($_SERVER['REQUEST_URI'], '/-4/users')){?>
-                                                <button type="button" rel="tooltip" title="<?=_dp("Sil")?>"
+                                                <button type="button" rel="tooltip" title="<?=_dp("Delete")?>"
                                                         class="btn btn-danger btn-link btn-sm js-clist__deletebtn">
                                                     <i class="material-icons">close</i>
                                                 </button>

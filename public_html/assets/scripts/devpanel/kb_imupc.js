@@ -22,58 +22,18 @@ $(".js-cedit__imupc").on("click", ".js-remove", function () {
         const boxIndexM = box.index() - 1;
         const fArI = strAr[boxIndexM];
 
-        console.log(strAr);
-        console.log(fArI);
-        console.log(box.attr("data-id"));
-
         if ((fArI) === (box.attr("data-id"))) {
-
             strAr.splice(boxIndexM, 1);
-
         } else {
-
             alert("Error");
             return;
-
         }
 
         str = strAr.join();
         dbItext.val(str)
 
         box.remove();
-
-        for(var i = 0; i < langs.length; i++) {
-
-            if (imupRow__langId !== langs[i].id) {
-
-                console.log("langs[i].id: " + langs[i].id);
-
-               const curImupcRow = $(".js-cedit__imupcRow[data-langid='"
-                   + langs[i].id + "'][data-order='"
-                   + imupRow__order + "']");
-
-               // console.log(".js-cedit__imupcRow[data-langid='"
-               //     + langs[i].id + "'][data-order='"
-               //     + imupRow__order + "']");
-
-               const curDbItext = $("[name='ct_files["
-                   + langs[i].id + "]["
-                   + imupRow__order  + "]']");
-
-               // console.log("curImupcRow.length: ");
-               // console.log(curImupcRow.length);
-
-               const curBox = curImupcRow.find(".js-cedit__imupcBox[data-id='" + fArI + "']");
-               curBox.remove();
-
-               curDbItext.val(str);
-
-            }
-
-        }
-
     }
-
 });
 
 

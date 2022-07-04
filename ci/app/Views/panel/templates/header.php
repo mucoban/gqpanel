@@ -21,7 +21,6 @@
           $sub_headersocial =
           $sub_headermenu =
           $sub_footermenu =
-          $sub_footermenu2 =
           $sub_footerContacts =
           $sub_footersocial =
           $sub_homepage =
@@ -61,9 +60,6 @@
           else if (uri_string() === "panel/content/list/8/footer-menu") {
               $m_menu = $sub_footermenu = true;
           }
-          else if (uri_string() === "panel/content/list/16/footer-menu-2") {
-              $m_menu = $sub_footermenu2 = true;
-          }
           else if (uri_string() === "panel/content/list/17/footer-sosyal-medya") {
               $m_menu = $sub_footersocial = true;
           }
@@ -94,11 +90,7 @@
         ?>
         <div class="logo">
             <a href="panel" class="simple-text logo-normal">
-<!--                <img src="assets/images/header-logo.png" alt="img">-->
-<!--                <br>-->
-                <span class="cpanel__logoText"><?=_dp("Nesibeli Ojak")?></span>
-                <br>
-                <span class="cpanel__logoText"><?=_dp("Yönetim Paneli")?></span>
+                <span class="cpanel__logoText"><?=_dp("Admin Panel")?></span>
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -106,7 +98,7 @@
                 <li class="nav-item activex">
                     <a class="nav-link" target="_blank" href="<?=base_url()?>">
                         <i class="material-icons">language</i>
-                        <p><?=_dp("Websiteye Git")?></p>
+                        <p><?=_dp('Go To') . ' ' . base_url()?></p>
                     </a>
                 </li>
                 <li class="nav-item activex">
@@ -119,7 +111,7 @@
                 <li class="nav-item">
                     <a class="nav-link <?=$m_usersIs ? "activ" : "" ?>" href="panel/content/list/-4/users">
                         <i class="material-icons">person</i>
-                        <p><?=_dp("Kullanıcılar")?></p>
+                        <p><?=_dp("Users")?></p>
                         <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                     </a>
                 </li>
@@ -127,7 +119,7 @@
                     <li class="nav-item <?=$m_site_settings ? "on" : "" ?>">
                         <a class="nav-link parent">
                             <i class="material-icons">settings</i>
-                            <p><?=_dp("Site Ayarları")?></p>
+                            <p><?=_dp("Settings")?></p>
                             <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </a>
 
@@ -136,14 +128,14 @@
                             <div class="cpanel__sub">
                                 <a class="nav-link <?=$sub_languages ? "activ" : "" ?>" href="panel/content/list/-2/languages">
                                     <i class="material-icons">flag</i>
-                                    <p><?=_dp("Diller")?></p>
+                                    <p><?=_dp("Languages")?></p>
                                     <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                                 </a>
                             </div>
                             <div class="cpanel__sub <?=$sub_translation__open ? "on" : "" ?>">
                                 <a class="nav-link parent">
                                     <i class="material-icons">language</i>
-                                    <p><?=_dp("Çeviri")?></p>
+                                    <p><?=_dp("Translation")?></p>
                                     <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                                 </a>
                                 <div class="cpanel__subSub">
@@ -174,7 +166,7 @@
                     <li class="nav-item">
                         <a class="nav-link <?=$m_seo ? "activ" : "" ?>" href="panel/content/list/-5/users">
                             <i class="material-icons">question_answer</i>
-                            <p><?=_dp("Mesajlar")?><?=$thisController->nonReadMessagecount ? '<span class="clist__mn">'
+                            <p><?=_dp("Messages")?><?=$thisController->nonReadMessagecount ? '<span class="clist__mn">'
                                     . $thisController->nonReadMessagecount . '</span>' : '' ?></p>
                             <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </a>
@@ -182,14 +174,14 @@
                     <li class="nav-item">
                         <a class="nav-link <?=$m_seo ? "activ" : "" ?>" href="panel/content/list/48/seo-ayarlari">
                             <i class="material-icons">timeline</i>
-                            <p><?=_dp("Seo Ayarları")?></p>
+                            <p><?=_dp("Seo")?></p>
                             <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </a>
                     </li>
                     <li class="nav-item <?=$m_menu ? "on" : "" ?>">
                         <a class="nav-link parent">
                             <i class="material-icons">grading</i>
-                            <p><?=_dp("Menüler")?></p>
+                            <p><?=_dp("Menus")?></p>
                             <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                         </a>
                         <div class="cpanel__sub">
@@ -217,11 +209,6 @@
                                 <p>Footer Menü A</p>
                                 <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                             </a>
-                            <a class="nav-link <?=$sub_footermenu2 ? "activ" : "" ?>" href="panel/content/list/16/footer-menu-2">
-                                <i class="material-icons">flax</i>
-                                <p>Footer Menü B</p>
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                            </a>
                             <a class="nav-link <?=$sub_footerContacts ? "activ" : "" ?>" href="panel/content/list/38/footer-iletisim">
                                 <i class="material-icons">flax</i>
                                 <p>Footer İletişim</p>
@@ -240,7 +227,7 @@
                 <li class="nav-item <?=$m_pages ? "on" : "" ?>">
                     <a class="nav-link parent" hrefx="panel/content/list/6/pages">
                         <i class="material-icons">content_copy</i>
-                        <p><?=_dp("Sayfalar")?></p>
+                        <p><?=_dp("Pages")?></p>
                         <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                     </a>
                     <div class="cpanel__sub  <?=$sub_homepage__open ? "on" : "" ?>">
@@ -254,9 +241,9 @@
                                 <i class="material-icons">flax</i>
                                 <p><?=_dp("Anasayfa")?></p>
                             </a>
-                            <a class="nav-link <?=$sub_homeSlider ? "activ" : "" ?>" href="panel/content/list/39/anasayfa-slider">
+                            <a class="nav-link <?=$sub_homeSlider ? "activ" : "" ?>" href="panel/content/list/39/sliders">
                                 <i class="material-icons">flax</i>
-                                <p><?=_dp("Anasayfa Slider")?></p>
+                                <p><?=_dp("Sliders")?></p>
                             </a>
                             <a class="nav-link <?=$sub_homeBusinessFields ? "activ" : "" ?>" href="panel/content/list/40/business-fields">
                                 <i class="material-icons">flax</i>
@@ -338,7 +325,7 @@
                     <form class="navbar-form js-navbar-form" >
                         <div class="navbar-form__dropdown js-navbar-form__dropdown"></div>
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="<?=_dp("Ara...")?>">
+                            <input type="text" value="" class="form-control" placeholder="<?=_dp("Search")?>">
                             <button type="submit" class="btn btn-white btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
                                 <div class="ripple-container"></div>
@@ -373,9 +360,17 @@
                             </li>
                         <?php } ?>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item">
+                            <a class="nav-link" href="panel/home/lang/<?php foreach ($_SESSION["langs"] as $k => $v) {
+                                echo $v->id !== $_SESSION['lang_id'] ? $v->id : '';
+                            } ?>">
+<!--                               id="navbarDropdownProfile"-->
+<!--                               data-toggle="dropdown"-->
+<!--                               aria-haspopup="true"-->
+<!--                               aria-expanded="false"-->
+
                                 <i class="material-icons">language</i>
+                                <span><?=objedengetir($_SESSION["langs"], ['id' => $_SESSION['lang_id']], 'abb')?></span>
                                 <p class="d-lg-none d-md-block">
                                     Account
                                 </p>
@@ -399,10 +394,10 @@
                                     <a class="dropdown-item" href="#">Profile</a>
                                 <?php } ?>
                                 <a class="dropdown-item"><?=$_SESSION["puser"]->username?></a>
-                                <a class="dropdown-item"  data-op-href="panel/content/edit/<?=$_SESSION["puser_id"]?>/-4"><?=_dp("Profilini düzenle")?></a>
+                                <a class="dropdown-item"  data-op-href="panel/content/edit/<?=$_SESSION["puser_id"]?>/-4"><?=_dp("Update profile")?></a>
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item" href="panel/login/logout"><?=_dp("Çıkış yap")?></a>
+                                <a class="dropdown-item" href="panel/login/logout"><?=_dp("Logout")?></a>
                             </div>
                         </li>
                     </ul>

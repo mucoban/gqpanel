@@ -71,6 +71,10 @@ class BaseController extends Controller
             ->query("select * from langs where active = 1 order by `order`");
         $this->langs = $query->getResult();
 
+        if (!$this->session->has("lang_id")) {
+            $this->session->set("lang_id", $this->langs[0]->id);
+        }
+
         $this->nonReadMessagecount =
             $this->db
                 ->query("select count(id) as count from inbox where is_read = 0")
@@ -92,11 +96,6 @@ class BaseController extends Controller
 
             $json = json_decode($fread, true);
             $this->session->set($panelStr . "lang_array", $json);
-        }
-
-        if (!$this->session->has("lang_id")) {
-            $ar = array_values($this->langs);
-            $this->session->set("lang_id", array_shift($ar)->id);
         }
 
         if (!$this->session->has("langs")) {

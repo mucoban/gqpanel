@@ -184,23 +184,24 @@ js_sortables.each(function () {
             }
 
             childs.each(function (index) {
-
                 const item = $(this);
-                const itemIndex = item.index();
-                var adding = 0;
+                if (clist && item.hasClass('js-clistTrAdded') || !clist) {
+                    const itemIndex = item.index();
+                    var adding = 0;
 
-                if (mainStartIndex < stopIndex && itemIndex < stopIndex) {
-                    adding = -1;
-                    if (typeof clistSortTypeDesc !== 'undefined') adding = 1;
-                } else if (mainStartIndex > stopIndex && itemIndex > stopIndex) {
-                    adding = 1;
-                    if (typeof clistSortTypeDesc !== 'undefined') adding = -1;
+                    if (mainStartIndex < stopIndex && itemIndex < stopIndex) {
+                        adding = -1;
+                        if (typeof clistSortTypeDesc !== 'undefined' && clistSortTypeDesc) adding = 1;
+                    } else if (mainStartIndex > stopIndex && itemIndex > stopIndex) {
+                        adding = 1;
+                        if (typeof clistSortTypeDesc !== 'undefined' && clistSortTypeDesc) adding = -1;
+                    }
+
+                    const thisItemId = item.attr(dataidStr);
+                    const thisOrderNumber = item.find("[name='" + itemStr + "[" + thisItemId + "][orderNumber]']").val();
+                    item.find("[name='" + itemStr + "[" + thisItemId + "][orderNumber]']").val(adding + parseInt(thisOrderNumber)).trigger("change");
+
                 }
-
-                const thisItemId = item.attr(dataidStr);
-                const thisOrderNumber = item.find("[name='" + itemStr + "[" + thisItemId + "][orderNumber]']").val();
-                item.find("[name='" + itemStr + "[" + thisItemId + "][orderNumber]']").val(adding + parseInt(thisOrderNumber)).trigger("change");
-
             });
 
             if (clist) {

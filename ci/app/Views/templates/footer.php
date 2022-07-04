@@ -2,29 +2,28 @@
     <div class="container">
         <div class="row">
             <div class="col-3  col-sm-12">
-                <a href="" class="footer-logo">mucoban.co</a>
+                <a href="<?=$thisController->footer[0]->ct_titles[1]->title?>"
+                   class="footer-logo"><?=$thisController->footer[0]->ct_titles[0]->title?></a>
             </div>
             <div class="col-3">
             </div>
             <div class="col-3  col-sm-12">
                <div class="footer-block">
                    <div class="title"></div>
-                   <div class="art"><a href="product">Ürünler</a></div>
-                   <div class="art"><a href="product">Hakkımda</a></div>
-                   <div class="art"><a href="contact">İletişim</a></div>
+                   <?php foreach ($thisController->footerMenu as $k => $v) { ?>
+                       <div class="art"><a href="product"><?=$v->ct_titles[0]->title?></a></div>
+                   <?php } ?>
                </div>
             </div>
             <div class="col-3  col-sm-12">
                <div class="footer-block footer-block-contact">
                    <div class="title dn">Contact</div>
-                   <div class="art">
-                       <img class="footer-cicon" src="assets/images/mail-white.svg" alt="phone">
-                       <label>E-mail:</label> <a>info@mucoban.co</a>
-                   </div>
-                   <div class="art">
-                       <img class="footer-cicon v-1" src="assets/images/phone-white.svg" alt="phone">
-                       <label>Telefon:</label> <a>+90 551 566 55 66</a>
-                   </div>
+                   <?php foreach ($thisController->footerContact as $k => $v) { ?>
+                       <div class="art">
+                           <img class="footer-cicon" src="uploads/files/<?php echo $v->ct_files[0]->fileName[0] ?? ''?>" alt="phone">
+                           <label><?=$v->ct_titles[0]->title?>:</label> <a><?=$v->ct_titles[1]->title?></a>
+                       </div>
+                   <?php } ?>
                    <div class="art dn">
                        <img class="footer-cicon v-3" src="assets/images/marker-white.svg" alt="phone">
                        <label>Address:</label> <span>The Willow Rise House Lane St. Albans Hertfordshire AL4 9HE</span>
@@ -33,7 +32,7 @@
             </div>
             <div class="col-12">
                 <div class="copyright">
-                    Copyright &#169;2022 All rights reserved.
+                    <?=$thisController->footer[0]->ct_txtbox[0]->value?>
                 </div>
             </div>
         </div>
