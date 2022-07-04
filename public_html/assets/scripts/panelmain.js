@@ -317,10 +317,12 @@ const js_sortableImg = $('.js-sortableImg');
 
 js_sortableImg.each(function () {
 
-    const iRow = js_sortableImg.closest(".js-cedit__imupcRow");
+    const iRow = $(this).closest(".js-cedit__imupcRow");
+    const iRowLangId = iRow.attr("data-langid");
+    const iRowOrder = iRow.attr("data-order")
     const dbItext = iRow.find("[name='ct_files["
-        + iRow.attr("data-langid") + "]["
-        + iRow.attr("data-order")  + "]']");
+        + iRowLangId + "]["
+        + iRowOrder + "]']");
 
     $(this).sortable({
         'placeholder': 'marker',
@@ -337,28 +339,17 @@ js_sortableImg.each(function () {
             ui.placeholder.css({
                 "display": "inline-block",
             });
-
             colorHolder = thisItem.css("border-color");
-            // console.log(colorHolder);
-
-            thisItem.css({
-                "border-color": "orange",
-            });
-
-
+            thisItem.css({ "border-color": "orange" });
         },
         change: function(e, ui) {
 
             changeIndex = ui.placeholder.index() - 0;
 
             if (startIndex > changeIndex) {
-
                 var slice = $('ul li').slice(changeIndex, $('ul li').length);
-
             } else if (startIndex < changeIndex) {
-
                 var slice = $('ul li').slice(startIndex, changeIndex);
-
             }
 
             startIndex = changeIndex;
@@ -367,7 +358,6 @@ js_sortableImg.each(function () {
 
             ui.placeholder.css({
                 "display": "inline-block",
-                // "border": "1px solid blue",
                 "width": "50px",
                 "height": "100%",
                 "transition": "width .7s",
@@ -376,41 +366,30 @@ js_sortableImg.each(function () {
             setTimeout(function () {
                 ui.placeholder.css("width", "200px");
             }, 20);
-
         },
         stop: function(e, ui) {
-
             const thisItem = $(ui.item);
             const parent_js_sortable = thisItem.closest(".js-sortable");
 
             stopIndex = thisItem.index();
 
-            console.log(mainStartIndex + "-" + stopIndex);
-
             const dbItextAr = dbItext.val().split(",");
 
             if (mainStartIndex > stopIndex) {
-
                 const chA = dbItextAr[mainStartIndex - 1];
                 dbItextAr.splice(mainStartIndex - 1, 1);
                 dbItextAr.splice(stopIndex - 1, 0, chA);
-
             } else if (mainStartIndex < stopIndex) {
-
                 const chA = dbItextAr[mainStartIndex - 1];
                 dbItextAr.splice(stopIndex - 0, 0, chA);
                 dbItextAr.splice(mainStartIndex - 1, 1);
-
             }
 
             dbItext.val(dbItextAr.join());
 
             /*********************************************/
 
-            thisItem.css({
-                "border-color": colorHolder,
-            });
-
+            thisItem.css({ "border-color": colorHolder });
         },
     });
 
@@ -438,28 +417,19 @@ js_sortables.each(function () {
             mainStartIndex = $(ui.item).index();
             startIndex = ui.placeholder.index() - 0;
 
-            // console.log('start: mainStartIndex=' + mainStartIndex + ' startIndex=' + startIndex);
-
             $(ui.item).css("border", "1px solid #ff9800");
             $(ui.item).css("display", "block");
-
         },
         change: function(e, ui) {
 
             changeIndex = ui.placeholder.index() - 0;
-            // console.log('change: changeIndex=' + changeIndex);
             if (startIndex > changeIndex) {
-
                 var slice = $('ul li').slice(changeIndex, $('ul li').length);
-
             } else if (startIndex < changeIndex) {
-
                 var slice = $('ul li').slice(startIndex, changeIndex);
-
             }
 
             startIndex = changeIndex;
-
         },
         stop: function(e, ui) {
 

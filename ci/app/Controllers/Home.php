@@ -14,10 +14,7 @@ class Home extends BaseController
             "orderby" => "eles.orderNumber",
         ]);
         $page = assignWhFiles($this, $page);
-        echo '<pre>';
-        print_r($page);
-        echo '</pre>';
-        die;
+
         $data = [
             "thisController" => $this,
             "page" => $page,

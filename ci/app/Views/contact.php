@@ -1,4 +1,4 @@
-<div class="details contact" style="background-image: url(uploads/files/<?=$page[0]->ct_files[0]->fileName?>)">
+<div class="details contact" style="background-image: url(uploads/files/<?=$page[0]->ct_files[0]->fileName[0]?>)">
     <div class="container" >
         <div class="row">
             <?php if (isset($_SESSION['form_is_successfull'])) { ?>

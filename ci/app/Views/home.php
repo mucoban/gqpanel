@@ -1,35 +1,20 @@
 <div class="container tc hp-section">
     <div class="wsslides">
         <div class="wsslides-row">
-            <div class="wsslides-col">
-                <div class="wsslides-item">
-                    <img src="assets/images/website-image-01.png" alt="wsslides-item">
+            <?php foreach ($page[0]->ct_files[0]->fileName as $k => $v) { ?>
+                <div class="wsslides-col">
+                    <div class="wsslides-item">
+                        <img src="uploads/files/<?=$v?>" alt="wsslides-item">
+                    </div>
                 </div>
-            </div>
-            <div class="wsslides-col">
-                <div class="wsslides-item">
-                    <img src="assets/images/website-image-02.png" alt="wsslides-item">
-                </div>
-            </div>
-            <div class="wsslides-col">
-                <div class="wsslides-item">
-                    <img src="assets/images/website-image-03.png" alt="wsslides-item">
-                </div>
-            </div>
-            <div class="wsslides-col">
-                <div class="wsslides-item">
-                    <img src="assets/images/website-image-04.png" alt="wsslides-item">
-                </div>
-            </div>
+            <?php }?>
         </div>
         <div class="wsslides-text">
             <div class="wsslides-text-inner">
-                Hayalinizdeki website ile çok daha fazla müşteriye ulaşın<br>
-                Size uygun paketlerimizden birini seçerek hemen başlayabiliriz
+                <?=$page[0]->ct_txtbox[0]->value?>
             </div>
-            <p class="wsslides-text-btn"><a href="">
-                    <img src="assets/images/mail-white.svg" alt="msg">
-                    Bize Ulaşın</a></p>
+            <p class="wsslides-text-btn"><a <?=$page[0]->ct_titles[2]->title ? 'href="' . $page[0]->ct_titles[2]->title . '"' : '' ?>>
+                    <img src="assets/images/mail-white.svg" alt="msg"><?=$page[0]->ct_titles[1]->title?></a></p>
         </div>
     </div>
 </div>
