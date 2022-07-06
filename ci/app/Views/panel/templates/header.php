@@ -1,91 +1,139 @@
 <body>
-<!-- End Google Tag Manager (noscript) -->
 <div class="wrapper cpanel ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/plugins/material/images/sidebar-1.jpg">
         <?php
         $isAdmin = false;
         if ($_SESSION['puser']->id === '5') $isAdmin = true;
 
-        $m_site_settings =
-          $m_seo =
-          $m_menu =
-          $m_pages =
-          $m_dashboardIs =
-          $m_usersIs =
-          $sub_languages =
-          $sub_translation__open =
-          $sub_sub_websiteTranslation =
-          $sub_sub_panelTranslation =
-          $sub_eletypes =
-          $sub_headerContacts =
-          $sub_headersocial =
-          $sub_headermenu =
-          $sub_footermenu =
-          $sub_footerContacts =
-          $sub_footersocial =
-          $sub_homepage =
-          $sub_homepage__open =
-          $sub_homeSlider =
-          $sub_homeOurPackages =
-          $sub_homeProgression =
-          $sub_bfields__open =
-          $sub_bfieldsBFs =
-          $sub_partners__open =
-          $sub_partnersPartners =
-          $sub_partnersPartnersItems =
-              false;
-
-          if (uri_string() === "panel/content/list/-4/users") {
-              $m_usersIs = true;
-          } else if (uri_string() === "panel/home/index") {
-              $m_dashboardIs = true;
-          }
-          else if (uri_string() === "panel/content/list/-2/languages") {
-              $m_site_settings = $sub_languages = true;
-          }
-          else if (uri_string() === "panel/content/list/-3/ele-types") {
-              $m_site_settings = $sub_eletypes = true;
-          }
-
-
-          else if (uri_string() === "panel/content/list/37/header-iletisim") {
-              $m_menu = $sub_headerContacts = true;
-          }
-          else if (uri_string() === "panel/content/list/36/header-sosyal-medya") {
-              $m_menu = $sub_headersocial = true;
-          }
-          else if (uri_string() === "panel/content/list/33/header-menu") {
-              $m_menu = $sub_headermenu = true;
-          }
-          else if (uri_string() === "panel/content/list/8/footer-menu") {
-              $m_menu = $sub_footermenu = true;
-          }
-          else if (uri_string() === "panel/content/list/17/footer-sosyal-medya") {
-              $m_menu = $sub_footersocial = true;
-          }
-          else if (uri_string() === "panel/content/list/38/footer-iletisim") {
-              $m_menu = $sub_footerContacts = true;
-          }
-
-          else if (uri_string() === "panel/content/list/39/anasayfa-slider") {
-              $m_pages = $sub_homepage__open = $sub_homeSlider = true;
-          }
-          else if (uri_string() === "panel/content/list/40/our-packages") {
-              $m_pages = $sub_homepage__open = $sub_homeOurPackages = true;
-          }
-          else if (uri_string() === "panel/content/list/41/proggression") {
-              $m_pages = $sub_homepage__open = $sub_homeProgression = true;
-          }
-          else if (uri_string() === "panel/content/list/42/business-fields") {
-              $m_pages = $sub_bfields__open = $sub_bfieldsBFs = true;
-          }
-          else if (uri_string() === "panel/content/list/45/partners-items") {
-              $m_pages = $sub_partners__open = $sub_partnersPartnersItems = true;
-          }
-
-          else if (uri_string() === "panel/content/list/48/seo-ayarlari") {
-              $m_seo = true;
-          }
+        $menuItems = [
+            [
+                'icon' => '<i class="material-icons">language</i>',
+                'text' => 'Go To ' . base_url(),
+                'url' => base_url(),
+                '_blank' => true,
+            ],
+            [
+                'icon' => '<i class="material-icons">dashboard</i>',
+                'text' => 'Dashboard',
+                'url' => 'panel',
+            ],
+            [
+                'icon' => '<i class="material-icons">person</i>',
+                'text' => 'Users',
+                'url' => 'panel/content/list/-4/users',
+            ],
+            [
+                'icon' => '<i class="material-icons">settings</i>',
+                'text' => 'Settings',
+                'onlyAdmin' => true,
+                'children' => [
+                    [
+                        'icon' => '<i class="material-icons">flag</i>',
+                        'text' => 'Languages',
+                        'url' => 'panel/content/list/-2/languages',
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">language</i>',
+                        'text' => 'Translation',
+                        'children' => [
+                            [
+                                'text' => 'Website',
+                                'url' => 'panel/content/translations',
+                            ],
+                            [
+                                'text' => 'Panel',
+                                'url' => 'panel/content/translations/1',
+                            ],
+                        ],
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">settings</i>',
+                        'text' => 'Eleman Türleri',
+                        'url' => 'panel/content/list/-3/ele-types',
+                    ],
+                ],
+            ],
+            [
+                'icon' => '<i class="material-icons">question_answer</i>',
+                'text' => 'Messages',
+                'url' => 'panel/content/list/-5/messages',
+                'isMessages' => true,
+            ],
+            [
+                'icon' => '<i class="material-icons">timeline</i>',
+                'text' => 'Seo',
+                'url' => 'panel/content/list/48/seo',
+            ],
+            [
+                'icon' => '<i class="material-icons">grading</i>',
+                'text' => 'Menüler',
+                'children' => [
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Header İletişim',
+                        'url' => 'panel/content/list/37/header-iletisim',
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Header Sosyal Medya',
+                        'url' => 'panel/content/list/36/header-sosyal-medya',
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Header Menü',
+                        'url' => 'panel/content/list/33/header-menu',
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Footer',
+                        'data-op-href' => 'panel/content/edit/55/15',
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Footer Menü A',
+                        'url' => 'panel/content/list/8/footer-menu',
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Footer İletişim',
+                        'url' => 'panel/content/list/38/footer-iletisim',
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Footer Sosyal Medya',
+                        'url' => 'panel/content/list/17/footer-sosyal-medya',
+                    ],
+                ],
+            ],
+            [
+                'icon' => '<i class="material-icons">content_copy</i>',
+                'text' => 'Pages',
+                'children' => [
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Anasayfa',
+                        'children' => [
+                            [
+                                'text' => 'Anasayfa',
+                                'data-op-href' => 'panel/content/edit/42/9'
+                            ],
+                            [
+                                'text' => 'Products',
+                                'url' => 'panel/content/list/49/products'
+                            ],
+                            [
+                                'text' => 'About Us',
+                                'data-op-href' => 'panel/content/edit/348/46'
+                            ],
+                            [
+                                'text' => 'Contact',
+                                'data-op-href' => 'panel/content/edit/350/47'
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
 
         ?>
         <div class="logo">
@@ -95,221 +143,74 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="nav-item activex">
-                    <a class="nav-link" target="_blank" href="<?=base_url()?>">
-                        <i class="material-icons">language</i>
-                        <p><?=_dp('Go To') . ' ' . base_url()?></p>
-                    </a>
-                </li>
-                <li class="nav-item activex">
-                    <a class="nav-link <?=$m_dashboardIs ? "activ0" : "" ?>" href="panel/home/index">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link <?=$m_usersIs ? "activ" : "" ?>" href="panel/content/list/-4/users">
-                        <i class="material-icons">person</i>
-                        <p><?=_dp("Users")?></p>
-                        <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                    </a>
-                </li>
-                <?php if($isAdmin){?>
-                    <li class="nav-item <?=$m_site_settings ? "on" : "" ?>">
-                        <a class="nav-link parent">
-                            <i class="material-icons">settings</i>
-                            <p><?=_dp("Settings")?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                <?php foreach ($menuItems as $k_mi => $v_mi) {
+                    if (empty($v_mi['onlyAdmin']) || $isAdmin) {
+
+                    $currentMenuItemOpen = false;
+                    if (isset($v_mi['children'])) {
+                        foreach ($v_mi['children'] as $k_child => $v_child) {
+                            if (isset($v_child['url']) && uri_string() === $v_child['url']) { $currentMenuItemOpen = true; }
+                            else if (isset($v_child['children'])) {
+                                foreach ($v_child['children'] as $k_grandChild => $v_grandChild) {
+                                    if (isset($v_grandChild['url']) && uri_string() === $v_grandChild['url']) { $currentMenuItemOpen = true; $currentMIChildOpenIndex = $k_child; break; }
+                                }
+                            }
+                        }
+                    }
+                    ?>
+                    <li class="nav-item <?=empty($currentMenuItemOpen) ?: 'on'?>">
+                        <a class="nav-link <?=!isset($v_mi['children']) ?: 'parent'?> <?=isset($v_mi['url']) && uri_string() === $v_mi['url'] ? 'activ' : ''?>"
+                            <?=empty($v_mi['_blank']) ?: 'target="_blank"'?>
+                            <?=isset($v_mi['url']) ? 'href="' . $v_mi['url'] . '"' : ''?>
+                        >
+                            <?=$v_mi['icon'] ?? ''?>
+                            <p><?=_dp($v_mi['text'])?><?=isset($v_mi['isMessages']) && $thisController->nonReadMessagecount ? '<span class="clist__mn">'
+                                    . $thisController->nonReadMessagecount . '</span>' : '' ?></p>
+                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>
                         </a>
 
-
-                        <?php if($isAdmin){?>
-                            <div class="cpanel__sub">
-                                <a class="nav-link <?=$sub_languages ? "activ" : "" ?>" href="panel/content/list/-2/languages">
-                                    <i class="material-icons">flag</i>
-                                    <p><?=_dp("Languages")?></p>
+                        <?php if (isset($v_mi['children'])) foreach ($v_mi['children'] as $k_child => $v_child) {
+                            if (empty($v_child['onlyAdmin']) || $isAdmin) {
+                            ?>
+                            <div class="cpanel__sub <?=isset($currentMIChildOpenIndex) && $currentMIChildOpenIndex === $k_child ? 'on' : '' ?>">
+                                <a class="nav-link
+                                    <?=!isset($v_child['children']) ?: 'parent'?>
+                                    <?=isset($v_child['url']) && uri_string() === $v_child['url'] ? 'activ' : ''?>"
+                                    <?=empty($v_child['_blank']) ?: 'target="_blank"'?>
+                                    <?=isset($v_child['url']) ? 'href="' . $v_child['url'] . '"' : ''?>
+                                    <?=isset($v_child['data-op-href']) ? 'data-op-href="' . $v_child['data-op-href'] . '"' : ''?>
+                                >
+                                    <?=$v_child['icon'] ?? ''?>
+                                    <p><?=_dp($v_child['text'])?></p>
                                     <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                                 </a>
-                            </div>
-                            <div class="cpanel__sub <?=$sub_translation__open ? "on" : "" ?>">
-                                <a class="nav-link parent">
-                                    <i class="material-icons">language</i>
-                                    <p><?=_dp("Translation")?></p>
-                                    <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                                </a>
-                                <div class="cpanel__subSub">
-                                    <a class="nav-link <?=$sub_sub_websiteTranslation ? "activ" : "" ?>" href="panel/content/translations">
-                                        <i class="material-icons">flax</i>
-                                        <p><?=_dp("Website")?></p>
-                                    </a>
-                                    <a class="nav-link  <?=$sub_sub_panelTranslation ? "activ" : "" ?>" href="panel/content/translations/1">
-                                        <i class="material-icons">flax</i>
-                                        <p>Panel</p>
-                                    </a>
-                                </div>
+                                <?php if (isset($v_child['children'])) {?>
+                                    <div class="cpanel__subSub">
+                                        <?php foreach ($v_child['children'] as $k_grandChild => $v_grandChild) { ?>
+                                            <a class="nav-link <?=isset($v_grandChild['url']) && uri_string() === $v_grandChild['url'] ? 'activ' : ''?>"
+                                                <?=empty($v_grandChild['_blank']) ?: 'target="_blank"'?>
+                                                <?=isset($v_grandChild['url']) ? 'href="' . $v_grandChild['url'] . '"' : ''?>
+                                                <?=isset($v_grandChild['data-op-href']) ? 'data-op-href="' . $v_grandChild['data-op-href'] . '"' : ''?>
+                                            >
+                                                <i class="material-icons">flax</i>
+                                                <p><?=_dp($v_grandChild['text'])?></p>
+                                            </a>
+                                        <?php } ?>
+                                    </div>
+                                <?php } ?>
                             </div>
                         <?php } ?>
-
-                        <div class="cpanel__sub">
-                            <a class="nav-link <?=$sub_eletypes ? "activ" : "" ?>" href="panel/content/list/-3/ele-types">
-                                <i class="material-icons">settings</i>
-                                <p><?=_dp("Eleman Türleri")?></p>
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                            </a>
-                        </div>
+                        <?php } ?>
 
                     </li>
                 <?php } ?>
-
-                <?php if(1){?>
-                    <li class="nav-item">
-                        <a class="nav-link <?=$m_seo ? "activ" : "" ?>" href="panel/content/list/-5/users">
-                            <i class="material-icons">question_answer</i>
-                            <p><?=_dp("Messages")?><?=$thisController->nonReadMessagecount ? '<span class="clist__mn">'
-                                    . $thisController->nonReadMessagecount . '</span>' : '' ?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?=$m_seo ? "activ" : "" ?>" href="panel/content/list/48/seo-ayarlari">
-                            <i class="material-icons">timeline</i>
-                            <p><?=_dp("Seo")?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                        </a>
-                    </li>
-                    <li class="nav-item <?=$m_menu ? "on" : "" ?>">
-                        <a class="nav-link parent">
-                            <i class="material-icons">grading</i>
-                            <p><?=_dp("Menus")?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                        </a>
-                        <div class="cpanel__sub">
-                            <a class="nav-link <?=$sub_headerContacts ? "activ" : "" ?>" href="panel/content/list/37/header-iletisim">
-                                <i class="material-icons">flax</i>
-                                <p>Header İletişim</p>
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                            </a>
-                            <a class="nav-link <?=$sub_headersocial ? "activ" : "" ?>" href="panel/content/list/36/header-sosyal-medya">
-                                <i class="material-icons">flax</i>
-                                <p>Header Sosyal Medya</p>
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                            </a>
-                            <a class="nav-link <?=$sub_headermenu ? "activ" : "" ?>" href="panel/content/list/33/header-menu">
-                                <i class="material-icons">flax</i>
-                                <p>Header Menü</p>
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                            </a>
-                            <a class="nav-link" data-op-href="panel/content/edit/55/15">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Footer")?></p>
-                            </a>
-                            <a class="nav-link <?=$sub_footermenu ? "activ" : "" ?>" href="panel/content/list/8/footer-menu">
-                                <i class="material-icons">flax</i>
-                                <p>Footer Menü A</p>
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                            </a>
-                            <a class="nav-link <?=$sub_footerContacts ? "activ" : "" ?>" href="panel/content/list/38/footer-iletisim">
-                                <i class="material-icons">flax</i>
-                                <p>Footer İletişim</p>
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                            </a>
-                            <a class="nav-link <?=$sub_footersocial ? "activ" : "" ?>" href="panel/content/list/17/footer-sosyal-medya">
-                                <i class="material-icons">flax</i>
-                                <p>Footer Sosyal Medya</p>
-                                <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                            </a>
-                        </div>
-                    </li>
                 <?php } ?>
-
-
-                <li class="nav-item <?=$m_pages ? "on" : "" ?>">
-                    <a class="nav-link parent" hrefx="panel/content/list/6/pages">
-                        <i class="material-icons">content_copy</i>
-                        <p><?=_dp("Pages")?></p>
-                        <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                    </a>
-                    <div class="cpanel__sub  <?=$sub_homepage__open ? "on" : "" ?>">
-                        <a class="nav-link parent">
-                            <i class="material-icons">flax</i>
-                            <p><?=_dp("Anasayfa")?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                        </a>
-                        <div class="cpanel__subSub">
-                            <a class="nav-link" data-op-href="panel/content/edit/42/9">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Anasayfa")?></p>
-                            </a>
-                            <a class="nav-link <?=$sub_homeSlider ? "activ" : "" ?>" href="panel/content/list/39/sliders">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Sliders")?></p>
-                            </a>
-                            <a class="nav-link <?=$sub_homeOurPackages ? "activ" : "" ?>" href="panel/content/list/40/our-packages">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Our Packages")?></p>
-                            </a>
-                            <a class="nav-link <?=$sub_homeProgression ? "activ" : "" ?>" href="panel/content/list/41/progression">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Progression")?></p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cpanel__sub  <?=$sub_bfields__open ? "on" : "" ?>">
-                        <a class="nav-link parent">
-                            <i class="material-icons">flax</i>
-                            <p><?=_dp("Business Fields")?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                        </a>
-                        <div class="cpanel__subSub">
-                            <a class="nav-link" data-op-href="panel/content/edit/341/43">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Business Fields Sayfası")?></p>
-                            </a>
-                            <a class="nav-link <?=$sub_bfieldsBFs ? "activ" : "" ?>" href="panel/content/list/42/business-fields">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Business Fields Items")?></p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cpanel__sub  <?=$sub_partners__open ? "on" : "" ?>">
-                        <a class="nav-link parent">
-                            <i class="material-icons">flax</i>
-                            <p><?=_dp("Partners")?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                        </a>
-                        <div class="cpanel__subSub">
-                            <a class="nav-link" data-op-href="panel/content/edit/342/44">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Partners Sayfası")?></p>
-                            </a>
-                            <a class="nav-link <?=$sub_partnersPartnersItems ? "activ" : "" ?>" href="panel/content/list/45/partners-items">
-                                <i class="material-icons">flax</i>
-                                <p><?=_dp("Partners Items")?></p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cpanel__sub">
-                        <a class="nav-link " data-op-href="panel/content/edit/348/46">
-                            <i class="material-icons">flax</i>
-                            <p><?=_dp("About Us")?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                        </a>
-                    </div>
-                    <div class="cpanel__sub">
-                        <a class="nav-link " data-op-href="panel/content/edit/350/47">
-                            <i class="material-icons">flax</i>
-                            <p><?=_dp("Contact")?></p>
-                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                        </a>
-                    </div>
-                </li>
 
             </ul>
         </div>
     </div>
     <div class="main-panel">
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
@@ -341,34 +242,10 @@
                                 </p>
                             </a>
                         </li>
-                        <?php if(0){?>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">notifications</i>
-                                    <span class="notification">5</span>
-                                    <p class="d-lg-none d-md-block">
-                                        Some Actions
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                                    <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                                    <a class="dropdown-item" href="#">Another Notification</a>
-                                    <a class="dropdown-item" href="#">Another One</a>
-                                </div>
-                            </li>
-                        <?php } ?>
-
                         <li class="nav-item">
                             <a class="nav-link" href="panel/home/lang/<?php foreach ($_SESSION["langs"] as $k => $v) {
                                 echo $v->id !== $_SESSION['lang_id'] ? $v->id : '';
                             } ?>">
-<!--                               id="navbarDropdownProfile"-->
-<!--                               data-toggle="dropdown"-->
-<!--                               aria-haspopup="true"-->
-<!--                               aria-expanded="false"-->
-
                                 <i class="material-icons">language</i>
                                 <span><?=objedengetir($_SESSION["langs"], ['id' => $_SESSION['lang_id']], 'abb')?></span>
                                 <p class="d-lg-none d-md-block">
@@ -404,4 +281,3 @@
                 </div>
             </div>
         </nav>
-        <!-- End Navbar -->
