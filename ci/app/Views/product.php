@@ -1,40 +1,13 @@
-<div class="container">
-    <h3 class="detail-headline">Driveways</h3>
-    <div class="detail-ibanner">
-        <img src="assets/images/inner-banner.png" alt="inner-banner">
-    </div>
-    <div class="detail-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-    </div>
-    <div class="palbum">
-        <div class="palbum-row">
-            <?php foreach ([
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                    [ 'i' => 'assets/images/hf-0', ],
-                           ]
-            as $k => $v) { ?>
-                <div class="palbum-col">
-                    <div class="palbum-item js-palbum-item" data-image-index="<?=($k % 3)?>">
-                        <div class="bg">
-                            <img src="<?=$v['i'] . ($k % 3 + 1) . '.png'?>" alt="img">
-                        </div>
-                        <img class="hidden" src="<?=$v['i'] . ($k % 3 + 1) . '.png'?>" alt="img">
-                        <div class="overlay"></div>
-                        <div class="content">
-                            <img class="expand-sign" src="assets/images/expand-sign-2.svg" >
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
+<div class="details">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <?php if ($page[0]->ct_files[0]->fileName[0]) { ?>
+                    <img src="uploads/files/<?=$page[0]->ct_files[0]->fileName[0]?>" class="dp-main-image" alt="dp-main-image">
+                <?php } ?>
+                <h3 class="details-headline v-2"><?=$page[0]->ct_titles[0]->title?></h3>
+                <p><?=$page[0]->ct_txteditor[0]->value?></p>
+            </div>
         </div>
     </div>
 </div>
-<div class="detail-pbottom-ph"></div>

@@ -118,18 +118,29 @@
                                 'data-op-href' => 'panel/content/edit/42/9'
                             ],
                             [
-                                'text' => 'Products',
-                                'url' => 'panel/content/list/49/products'
+                                'text' => 'Our Packages',
+                                'url' => 'panel/content/list/40/our-packages'
                             ],
                             [
-                                'text' => 'About Us',
-                                'data-op-href' => 'panel/content/edit/348/46'
-                            ],
-                            [
-                                'text' => 'Contact',
-                                'data-op-href' => 'panel/content/edit/350/47'
+                                'text' => 'Progression',
+                                'url' => 'panel/content/list/41/progression'
                             ],
                         ],
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Products',
+                        'url' => 'panel/content/list/49/products'
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'About Us',
+                        'data-op-href' => 'panel/content/edit/348/46'
+                    ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Contact',
+                        'data-op-href' => 'panel/content/edit/350/47'
                     ],
                 ],
             ],
