@@ -62,8 +62,21 @@ class BaseController extends Controller
         $query = $this->db->query("select * from langs where active = 1 order by `order`");
         $this->langs = $query->getResult();
 
+        if (!$this->session->has("lang_id")) {
+            $language_abb = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            $fl = $this->db->table('langs')
+                ->where('abb', $language_abb)
+                ->get()->getResult();
 
-        $this->current_lang_id = $this->session->lang_id ?: $this->langs[0]->id;
+            $langToBeSet = $this->db->affectedRows() === 1 ? $fl[0] : $this->langs[0];
+
+            $this->session->set("lang_id", $langToBeSet->id);
+            $this->session->set("lang_abb", $langToBeSet->abb);
+        }
+
+        $this->current_lang_id = $this->session->lang_id;
+
+        /*********************************************/
 
         $this->eleModel = new \App\Models\EleModel($this->db, null, $this->langs, $this->allCts);
         $this->bindingsModel = new \App\Models\BindingsModel();
@@ -145,15 +158,6 @@ class BaseController extends Controller
             $json = json_decode($fread, true);
 
             $this->session->set($panelStr . "lang_array", $json);
-        }
-
-        if (!$this->session->has("lang_id")) {
-            $ar = array_values($this->langs);
-            $this->session->set("lang_id", array_shift($ar)->id);
-            $languages = $this->db->table('langs')
-                ->where('id', $this->session->lang_id)
-                ->get()->getResult();
-            $this->session->set("lang_abb", $languages[0]->abb);
         }
     }
 
