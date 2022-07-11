@@ -25,34 +25,22 @@
                         Phone:</div>
                     <a class="text"><?=$page[0]->ct_titles[2]->title?></a>
                 </div>
-                <div class="art-contact dn">
-                    <div class="bold">
-                        <img class="icon icon-3" src="assets/images/marker.svg" alt="mail">
-                        Address:</div>
-                    <div class="text">
-                        The Willow Rise
-                        House Lane
-                        St. Albans
-                        Hertfordshire
-                        AL4 9HE
-                    </div>
-                </div>
             </div>
             <div class="col-6 col-sm-12">
                 <h3 class="details-headline v-2"><?=$page[0]->ct_titles[3]->title?></h3>
-                <form action="contact/send" class="contact-form" method="post">
+                <form action="contact/sendredirect" class="contact-form" method="post" onsubmit="return formValidation({form: this, controls: 'all'})">
                     <div class="row">
                         <div class="col-12 col-sm-12 form-group">
-                            <input type="text" name="name" class="form-control" placeholder="<?=$page[0]->ct_titles[4]->title?>">
+                            <input type="text" name="name" class="form-control" placeholder="<?=$page[0]->ct_titles[4]->title?>" autocomplete="off">
                         </div>
                         <div class="col-12 form-group">
-                            <input type="text" name="email" class="form-control" placeholder="<?=$page[0]->ct_titles[5]->title?>">
+                            <input type="text" name="email" class="form-control" placeholder="<?=$page[0]->ct_titles[5]->title?>" autocomplete="off">
                         </div>
                         <div class="col-12 form-group">
-                            <input type="text" name="subject" class="form-control" placeholder="<?=$page[0]->ct_titles[6]->title?>">
+                            <input type="text" name="phone" class="form-control" placeholder="<?=$page[0]->ct_titles[6]->title?>" autocomplete="off">
                         </div>
                         <div class="col-12 form-group">
-                            <textarea class="form-control" name="message" rows="5" placeholder="<?=$page[0]->ct_titles[7]->title?>"></textarea>
+                            <textarea class="form-control" name="message" rows="5" placeholder="<?=$page[0]->ct_titles[7]->title?>" autocomplete="off"></textarea>
                         </div>
                         <div class="col-12 form-group tr">
                             <button class="form-submit"><?=$page[0]->ct_titles[8]->title?></button>

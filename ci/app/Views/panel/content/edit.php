@@ -44,17 +44,6 @@
                             <?php foreach ($langs as $k => $d) { ?>
                                     <div class="tab-pane js-tab-pane<?=$k === 0 ? " active" : "" ?>" id="tab-pane-<?=$d->abb?>">
 
-                                        <?php if(0){?>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="form-group bmd-form-group">
-                                                        <label class="bmd-label-floating">Company (disabled)</label>
-                                                        <input type="text" class="form-control" disabled="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-
                                         <?php foreach ($cts["tables"] as $k_b => $d_b) { ?>
                                             <?php
                                             $tableStr = $d_b["table"];
@@ -70,7 +59,8 @@
                                                                        objedengetir($items[0]->{$tableStr}, ["lang_id" => $d->id, "order" => $d_b["order"],], "title") !== null
                                                                        ?
                                                                        objedengetir($items[0]->{$tableStr}, ["lang_id" => $d->id, "order" => $d_b["order"],], "title")
-                                                                       : " " ?>">
+                                                                       : " " ?>"
+                                                                    >
                                                             <div class="js-colorpicker colpick__rect"
                                                                  style="background-color: <?=!isset($new) ? objedengetir($items[0]->{$tableStr}, ["lang_id" => $d->id, "order" => $d_b["order"],], "title") : "white" ?>"></div>
                                                         </div>
@@ -84,7 +74,7 @@
                                                             <label class="bmd-label-floating"><?=_dp($d_b["label"])?></label>
                                                             <input type="text" name="<?=$tableStr?>[<?=$d->id?>][<?=$d_b["order"]?>]"
                                                                    value="<?=!isset($new) ? objedengetir($items[0]->{$tableStr}, ["lang_id" => $d->id, "order" => $d_b["order"],], "title") : "" ?>"
-                                                                   class="form-control"
+                                                                   class="form-control" autocomplete="off"
                                                                 <?=isset($d_b["disabled"]) ? "disabled" : "" ?> >
                                                         </div>
                                                     </div>

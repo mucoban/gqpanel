@@ -5,6 +5,7 @@ var setCal
 ;
 
 
+
 $(document).ready(function () {
 
 /*************** sliders ******************************/
@@ -135,6 +136,27 @@ $('.nav-link-outer').click(function () {
 
 /*************** g_submenu END ******************************/
 
+/*************** i_qyickMessage ******************************/
+
+const quickMessage = $('.quick-message');
+const qMClose = $('.quick-message .close');
+
+$('.qm-trigger').click(function () {
+    quickMessage.addClass('on');
+});
+
+qMClose.click(function () {
+    quickMessage.removeClass('on');
+    setTimeout(function () { quickMessage.attr('mode', ''); }, 300);
+});
+
+$('form [name]').focus(function () {
+    const next = $(this).next();
+    if (next.hasClass('form-error')) { next.remove(); }
+});
+
+/*************** i_qyickMessage END ******************************/
+
     scrolloldu();
 
 });
@@ -199,6 +221,72 @@ function fovaContactForm(form) {
 }
 
 /*************** o_contactForm END ******************************/
+
+/*********************************************/
+
+function formValidation(obj) {
+    let returnValue = true;
+    const formControls = $(obj.form).find('[name]');
+    const controls = obj.controls === 'all' ? formControls : formControls.filter(function (fc) {
+        return obj.controls.find(function (oc) { return oc.name === formControls[fc].name })
+    });
+
+    for (control of controls) {
+        if (control.name === "name" || control.name === "message") {
+            const value = control.value;
+            if (value.length < 3) {
+                const message = (control.name === 'name' ? localStrings['name-surname-error'] : localStrings['message-error']);
+                $('<div class="form-error">' + message + '</div>').insertAfter(control);
+                returnValue = false;
+            }
+        }
+        else if (control.name == "phone") {
+            const value = control.value;
+            if (value.length < 5) {
+                $('<div class="form-error">' + localStrings['phone-error'] + '</div>').insertAfter(control);
+                returnValue = false;
+            }
+        }
+        else if (control.name == "email") {
+            const value = control.value;
+            if (!emailValidate(value)) {
+                $('<div class="form-error">' + localStrings['email-error'] + '</div>').insertAfter(control); returnValue = false;
+            }
+        }
+    }
+    return returnValue;
+}
+
+/*********************************************/
+
+/*********************************************/
+
+function quickMessageSend(form) {
+    if(!formValidation({form: form, controls: 'all'})) { return false; }
+
+    const quickMessage = $(form).closest('.quick-message');
+    quickMessage.attr('mode', 'loading');
+
+    $.ajax({
+        url: baseurl + '/contact/send',
+        method: 'POST',
+        data: $(form).serialize(),
+        success: function (result) {
+            result = JSON.parse(result);
+            if (result.success) {
+                quickMessage.attr('mode', 'successful');
+                form.reset();
+                setTimeout(function () { quickMessage.removeClass('on'); }, 2000);
+                setTimeout(function () { quickMessage.attr('mode', ''); }, 2300);
+            }
+        },
+        error: function (error) { quickMessage.attr('mode', ''); console.log(error); alert("Hata:" + error.code + error.msg); },
+    });
+
+    return false;
+}
+
+/*********************************************/
 
 /****************** funcDefs ***************************/
 

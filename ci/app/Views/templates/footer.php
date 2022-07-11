@@ -65,4 +65,40 @@
     </div>
 </div>
 
+<div class="quick-message" mode="">
+    <div class="bg"></div>
+    <div class="content">
+        <div class="icon qm-trigger">
+            <img src="assets/images/mail.svg" alt="img">
+        </div>
+        <form action="contact" onsubmit="return quickMessageSend(this)">
+            <div class="close"><img src="assets/images/close-sign-black.svg" alt="close"></div>
+            <div class="title"><?=$thisController->footerMessage[0]->ct_titles[0]->title?></div>
+            <div class="flash-message-holder">
+                <p class="flash-message positive">Mesajınız başarıyla gönderildi</p>
+            </div>
+            <div class="cbox">
+                <div class="line">
+                    <input type="text" name="name" class="itext" placeholder="<?=$thisController->footerMessage[0]->ct_titles[1]->title?>">
+                </div>
+                <div class="line">
+                    <input type="text" name="email" class="itext" placeholder="<?=$thisController->footerMessage[0]->ct_titles[3]->title?>">
+                </div>
+                <div class="line">
+                    <input type="text" name="phone" class="itext" placeholder="<?=$thisController->footerMessage[0]->ct_titles[5]->title?>">
+                </div>
+                <div class="line">
+                    <textarea name="message" class="itext" rows="5" placeholder="<?=$thisController->footerMessage[0]->ct_titles[7]->title?>"></textarea>
+                </div>
+                <div class="line">
+                    <button class="btn submit">Send</button>
+                </div>
+            </div>
+            <div class="loader">
+                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+        </form>
+    </div>
+</div>
+
 

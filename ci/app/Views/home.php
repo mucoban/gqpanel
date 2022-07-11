@@ -20,8 +20,10 @@
             <div class="wsslides-text-inner">
                 <?=$sliders[0]->ct_txtbox[0]->value?>
             </div>
-            <p class="wsslides-text-btn"><a <?=$sliders[0]->ct_titles[2]->title ? 'href="' . $sliders[0]->ct_titles[2]->title . '"' : '' ?>>
-                    <img src="assets/images/mail-white.svg" alt="msg"><?=$sliders[0]->ct_titles[1]->title?></a></p>
+            <p class="wsslides-text-btn">
+                <a class="qm-trigger" <?=$sliders[0]->ct_titles[2]->title ? 'href="' . $sliders[0]->ct_titles[2]->title . '"' : '' ?>>
+                    <img src="assets/images/mail-white.svg" alt="msg"><?=$sliders[0]->ct_titles[1]->title?></a>
+            </p>
         </div>
     </div>
 </div>

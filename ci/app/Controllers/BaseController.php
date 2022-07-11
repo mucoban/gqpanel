@@ -94,6 +94,9 @@ class BaseController extends Controller
         foreach ($seos as $k => $d) {
             if (strlen($d->ct_titles[1]->title) > 2 && strstr($_SERVER['REQUEST_URI'], $d->ct_titles[1]->title)) {
                 $foundSeo = $d;
+                $foundSeo->ct_titles[2]->title .= $seos[0]->ct_titles[2]->title;
+                $foundSeo->ct_txtbox[0]->value .= $seos[0]->ct_txtbox[0]->value;
+                $foundSeo->ct_txtbox[1]->value .= $seos[0]->ct_txtbox[1]->value;
                 break;
             }
         }
@@ -143,6 +146,13 @@ class BaseController extends Controller
             "orderby" => "eles.orderNumber",
         ]);
         $this->footerContact = assignWhFiles($this, $this->footerContact);
+
+        $this->footerMessage = $this->eleModel->getAll([
+            "type_id" => 50,
+            "lang_id" => $this->current_lang_id,
+            "where" => [["eles", "active", "=", 1,], ["eles", "id", "=", 367,]],
+            "orderby" => "eles.orderNumber",
+        ]);
 
         /*********************************************/
 

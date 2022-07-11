@@ -22,6 +22,15 @@ class Contact extends BaseController
         loadpage("contact", $data);
     }
 
+    public function sendRedirect() {
+	    $this->send();
+
+        $session = session();
+        $session->setFlashdata('form_is_successfull', '1');
+
+        return redirect()->to(base_url() . '/contact');
+    }
+
     public function send() {
 
 	    $receiverMail = 'webdeveloper.mucahitcoban@gmail.com';
@@ -29,7 +38,7 @@ class Contact extends BaseController
         $request = service('request');
         $name = $request->getPost('name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $email = $request->getPost('email', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $subject = $request->getPost('subject', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $phone = $request->getPost('phone', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $message = $request->getPost('message', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $db = \Config\Database::connect();
@@ -37,7 +46,7 @@ class Contact extends BaseController
         $data = [
             'name'  => $name,
             'email'  => $email,
-            'subject'  => $subject,
+            'phone'  => $phone,
             'message'  => $message,
             'datetime'  => date('Y-m-d H:i:s'),
         ];
@@ -50,11 +59,7 @@ class Contact extends BaseController
 //        $body = getTemplate($name, $email, $subject, $message);
 //	    send_the_mail($receiverMail, 'A Message has been received', $body);
 
-        $session = session();
-        $session->setFlashdata('form_is_successfull', '1');
-
-        return redirect()->to(base_url() . '/contact');
-
+        echo json_encode(['success' => true]);
     }
 
 }

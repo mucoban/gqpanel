@@ -103,6 +103,11 @@
                         'text' => 'Footer Sosyal Medya',
                         'url' => 'panel/content/list/17/footer-sosyal-medya',
                     ],
+                    [
+                        'icon' => '<i class="material-icons">flax</i>',
+                        'text' => 'Footer Message',
+                        'data-op-href' => 'panel/content/edit/367/50',
+                    ],
                 ],
             ],
             [
@@ -116,6 +121,10 @@
                             [
                                 'text' => 'Anasayfa',
                                 'data-op-href' => 'panel/content/edit/42/9'
+                            ],
+                            [
+                                'text' => 'Sliders',
+                                'url' => 'panel/content/list/39/sliders'
                             ],
                             [
                                 'text' => 'Our Packages',
