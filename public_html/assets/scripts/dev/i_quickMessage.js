@@ -4,7 +4,8 @@ const quickMessage = $('.quick-message');
 const qMClose = $('.quick-message .close');
 
 $('.qm-trigger').click(function () {
-    quickMessage.addClass('on');
+    if (window.innerWidth > 991) quickMessage.addClass('on');
+    else window.location.href = baseurl + '/contact';
 });
 
 qMClose.click(function () {

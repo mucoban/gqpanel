@@ -73,6 +73,7 @@ class BaseController extends Controller
 
         if (!$this->session->has("lang_id")) {
             $this->session->set("lang_id", $this->langs[0]->id);
+            $this->session->set("lang_abb", $this->langs[0]->abb);
         }
 
         $this->nonReadMessagecount =

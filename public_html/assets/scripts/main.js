@@ -43,22 +43,23 @@ $('.js-modal-image-slider').slick({
 /*************** e_hambugerMenu ******************************/
 
 const header = $('.header');
+const monStr = 'mmenu-on';
 
 $('.mmenu-close').click(function () {
-    if (!header.hasClass('mmon')) {
-        header.addClass('mmon');
+    if (!header.hasClass(monStr)) {
+        header.addClass(monStr);
     }
 });
 
 $('.mmenu-close').click(function () {
-    if (header.hasClass('mmon')) {
-        header.removeClass('mmon');
+    if (header.hasClass(monStr)) {
+        header.removeClass(monStr);
     }
 });
 
 $('.mmenu-icon').click(function () {
-    if (!header.hasClass('mmon')) {
-        header.addClass('mmon');
+    if (!header.hasClass(monStr)) {
+        header.addClass(monStr);
     }
 });
 
@@ -142,7 +143,8 @@ const quickMessage = $('.quick-message');
 const qMClose = $('.quick-message .close');
 
 $('.qm-trigger').click(function () {
-    quickMessage.addClass('on');
+    if (window.innerWidth > 991) quickMessage.addClass('on');
+    else window.location.href = baseurl + '/contact';
 });
 
 qMClose.click(function () {

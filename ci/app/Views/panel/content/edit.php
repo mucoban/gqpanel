@@ -1,12 +1,14 @@
 <div class="cedit">
-    <div class="card">
-        <div class="card-header card-header-primary">
-            <?php
-                $duzenlemeStr = 'Edit';
-                if (!empty($showMode)) { $duzenlemeStr = ''; }
-            ?>
-            <h4 class="card-title"><?=!isset($new) ? _dp($duzenlemeStr) : _dp("New") . " " . $cts["eleTitle"] ?></h4>
-        </div>
+    <div class="card <?=!isset($new) ? 'edit' : ''?>">
+        <?php if (isset($new)) { ?>
+            <div class="card-header card-header-primary <?=!isset($new) ?: 'new'?>">
+                <?php
+                    $duzenlemeStr = 'Edit';
+                    if (!empty($showMode)) { $duzenlemeStr = ''; }
+                ?>
+                    <h4 class="card-title"><?=!isset($new) ? _dp($duzenlemeStr) : _dp("Create New") . " " . $cts["eleTitle"] . _dp(" Element") ?></h4>
+            </div>
+        <?php }?>
         <div class="card-body">
             <form class="cedit__form" method="post" data-savemode="" data-new="<?=!isset($new) ? "0" : "1" ?>"
                   onsubmit="return fova_cedit(this)"
@@ -297,7 +299,9 @@
                                                             <label class="bmd-label-floating"><?=_dp($d_b["label"])?></label>
                                                             <input type="password"
                                                                    name="<?=$d_b["name"]?>"
-                                                                   value="" class="form-control">
+                                                                   class="form-control" autocomplete="off"
+                                                                   readonly
+                                                                   onfocus="this.removeAttribute('readonly');">
                                                         </div>
                                                     </div>
                                                 </div>

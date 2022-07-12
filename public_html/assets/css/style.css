@@ -143,8 +143,8 @@ img {
 }
 .header .nav-link.language img {
   vertical-align: top;
-  margin-top: 2px;
-  margin-right: -3px;
+  margin-top: 1px;
+  margin-right: -1px;
 }
 .header .nav-sub {
   display: none;
@@ -180,6 +180,8 @@ img {
 }
 .header.mmenu-on .nav {
   left: 0;
+  opacity: 1;
+  pointer-events: initial;
 }
 .header.sticky {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -574,7 +576,7 @@ img {
   bottom: 0;
   right: 110px;
   transform: translate(0, 92%);
-  transition: all 0.6s;
+  transition: all 0.4s;
 }
 .quick-message .bg {
   position: absolute;
@@ -646,7 +648,7 @@ img {
 .quick-message form {
   width: 50px;
   padding: 10px 10px 20px;
-  transition: all 0.6s;
+  transition: all 0.4s;
 }
 .quick-message .flash-message-holder {
   display: none;
@@ -883,7 +885,7 @@ img {
     position: fixed;
     background: white;
     transition: all 0.3s;
-    left: -100%;
+    left: -20%;
     top: -20px;
     height: 100vh;
     width: 100%;
@@ -893,9 +895,12 @@ img {
     align-items: center;
     flex-direction: column;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
   }
   .header .nav-link {
     margin-left: 0;
+    font-size: 24px;
   }
   .header .nav-link-outer {
     padding: 0 0 40px;
@@ -950,7 +955,8 @@ img {
     text-align: center;
   }
   .hpackages-pitem img {
-    max-width: 300px;
+    max-width: 80%;
+    width: 300px;
   }
   .hpackages-pitem:last-child {
     margin-bottom: 0;
@@ -986,6 +992,10 @@ img {
 
   .contact-col-2 {
     margin-bottom: 30px;
+  }
+
+  .quick-message {
+    display: none;
   }
 }
 @media (max-width: 767px) {

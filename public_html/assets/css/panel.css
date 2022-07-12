@@ -9,23 +9,23 @@
 .card .card-header-primary:not(.card-header-icon):not(.card-header-text),
 .card.card-rotate.bg-primary .back,
 .card.card-rotate.bg-primary .front {
-  background: #fff;
-  color: #767676;
+  background: #009688;
+  color: #fff;
   box-shadow: 0 4px 20px 0 rgba(253, 220, 220, 0.14), 0 7px 10px -5px rgba(74, 71, 74, 0.4);
 }
 
 .nav-tabs .nav-item .nav-link {
   margin: 0 5px;
-  background: #cacaca;
+  background: #00897b;
 }
 
 .nav-tabs .nav-item .nav-link.active {
-  background: #7fa9c4;
+  background: #4db6ac;
 }
 
 .card-title,
 .card-category {
-  color: #333 !important;
+  color: #fff !important;
 }
 
 .form-control,
@@ -116,9 +116,26 @@
   visibility: hidden;
 }
 
+.sidebar .nav li .dropdown-menu a,
+.sidebar .nav li a {
+  text-transform: initial;
+}
+
 /******************************************************/
 .fixed-plugin {
   display: none;
+}
+
+.card-header {
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.15) !important;
+}
+.card-header.new {
+  background: #4caf50 !important;
+  color: white !important;
+}
+.card-header.new .card-title {
+  font-size: 14px;
+  color: white !important;
 }
 
 /******************************************************/
@@ -132,6 +149,7 @@
 
 body {
   margin: 0;
+  background-color: #f7f7f7f7;
 }
 body.-cedit {
   background-color: white;
@@ -416,6 +434,9 @@ body.-loginPage {
 .cedit .card {
   box-shadow: none;
 }
+.cedit .card.edit {
+  margin-top: 20px;
+}
 .cedit__submitbtn {
   position: relative;
   overflow: hidden;
@@ -513,6 +534,10 @@ body.-loginPage {
 }
 .cedit__langbar {
   margin-bottom: 20px !important;
+  background-color: transparent !important;
+}
+.cedit__langbar .nav-tabs-title {
+  color: #333;
 }
 .cedit__imupc {
   padding: 20px 0 0 20px;

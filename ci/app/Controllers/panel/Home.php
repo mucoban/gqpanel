@@ -32,6 +32,7 @@ class Home extends BaseController
     public function lang($id) {
 
         $this->session->set("lang_id", $id);
+        $this->session->set("lang_abb", objedengetir($this->langs, ['id' => $id], 'abb'));
 
         return redirect()->to($_SERVER["HTTP_REFERER"]);
 

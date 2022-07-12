@@ -98,8 +98,8 @@ img {
       &.language {
         img {
           vertical-align: top;
-          margin-top: 2px;
-          margin-right: -3px;
+          margin-top: 1px;
+          margin-right: -1px;
         }
         span {}
       }
@@ -132,6 +132,8 @@ img {
   &.mmenu-on {
       .nav {
         left: 0;
+        opacity: 1;
+        pointer-events: initial;
       }
   }
   &.sticky {
@@ -460,9 +462,10 @@ img {
 }
 
 .quick-message {
+  $qmDuration: .4s;
   position: fixed;  bottom: 0; right: 110px;
   transform: translate(0, 92%);
-  transition: all .6s;
+  transition: all $qmDuration;
   .bg {    position: absolute;
     background: white;
     height: 100%;
@@ -520,7 +523,7 @@ img {
   form {
     //width: 230px;
     width: 50px;
-    padding: 10px 10px 20px; transition: all .6s;
+    padding: 10px 10px 20px; transition: all $qmDuration;
   }
   .flash-message-holder { display: none; }
   &[mode="loading"] {

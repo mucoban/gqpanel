@@ -11,18 +11,18 @@
 .card.card-rotate.bg-primary .back,
 .card.card-rotate.bg-primary .front {
   //background: linear-gradient(60deg, #cecece, #939194);
-  background: #fff;
-  color: #767676;
+  background: #009688;
+  color: #fff;
   box-shadow: 0 4px 20px 0 rgba(253, 220, 220, 0.14),
   0 7px 10px -5px rgba(74, 71, 74, .4);
 }
 .nav-tabs .nav-item .nav-link
-{ margin: 0 5px; background: #cacaca; }
-.nav-tabs .nav-item .nav-link.active {  background: #7fa9c4; }
+{ margin: 0 5px; background: #00897b; }
+.nav-tabs .nav-item .nav-link.active {  background: #4db6ac; }
 
 .card-title,
 .card-category {
-  color: #333 !important;
+  color: #fff !important;
 }
 
 .form-control,
@@ -119,10 +119,26 @@ b {
   visibility: hidden;
 }
 
+.sidebar .nav li .dropdown-menu a,
+.sidebar .nav li a
+{ text-transform: initial }
+
 /******************************************************/
 
 .fixed-plugin {
   display: none;
+}
+
+.card-header {
+  box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 15%) !important;
+  &.new {
+    background: #4caf50 !important;
+    color: white !important;
+    .card-title {
+      font-size: 14px;
+      color: white !important;
+    }
+  }
 }
 
 /******************************************************/
@@ -136,7 +152,7 @@ b {
 
 body {
   margin: 0;
-  //background-color: red;
+  background-color: #f7f7f7f7;
 
   &.-cedit {
     background-color: white;
@@ -331,9 +347,6 @@ body {
   }
 }
 
-
-////////////// emir searchbox dropdown â†™â†™â†™â†™â†™â†™â†™
-
 .navbar-form {
   position: relative;
 
@@ -393,8 +406,6 @@ body {
     }
   }
 }
-
-////////////// emir searchbox dropdown â†–â†–â†–â†–â†–â†–
 
 .popup {
   display: none;
@@ -498,6 +509,7 @@ body {
 
   .card {
     box-shadow: none;
+    &.edit { margin-top: 20px; }
   }
 
   &__submitbtn {
@@ -631,6 +643,8 @@ body {
 
   &__langbar {
     margin-bottom: 20px !important;
+    background-color: transparent !important;
+    .nav-tabs-title { color: #333; }
   }
 
   &__imupc {

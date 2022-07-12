@@ -8,7 +8,7 @@
         $menuItems = [
             [
                 'icon' => '<i class="material-icons">language</i>',
-                'text' => 'Go To ' . base_url(),
+                'text' => 'Go To ' . $_SERVER['SERVER_NAME'],
                 'url' => base_url(),
                 '_blank' => true,
             ],

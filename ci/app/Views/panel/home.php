@@ -1,76 +1,37 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-warning card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">flag</i>
-                        </div>
-                        <p class="card-category"><?=_dp("Diller")?></p>
-                        <h3 class="card-title"><?=count($_SESSION['langs'])?>
-                        </h3>
+            <div class="col-md-12 col-sm-6">
+                <div class="card">
+
+                    <div class="card-body">
+                        <?php if ($thisController->session->lang_abb === 'tr') { ?>
+                            <h2>Admin Panele hoş geldiniz</h2>
+                            <p>
+                                You can create, edit, delete all elements in your website with this admin panel.
+                                <br>
+                                Just navigate to the related section in left side menu and you will find the element you want to make changes on.
+                                <br>
+                                If you can't find your element, you can use the search bar above.
+
+                            </p>
+                        <?php } else { ?>
+                            <h2>Welcome to Admin Panel</h2>
+                            <p>
+                                You can create, edit, delete all elements in your website with this admin panel.
+                                <br>
+                                Just navigate to the related section in left side menu and you will find the element you want to make changes on.
+                                <br>
+                                If you can't find your element, you can use the search bar above.
+
+                            </p>
+                        <?php } ?>
                     </div>
                     <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">edit</i>
-                            <a href="panel/content/list/-2/languages"><?=_dp("Düzenle")?></a>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-danger card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">grading</i>
-                        </div>
-                        <p class="card-category">Header <?=_dp("Menü")?></p>
-                        <h3 class="card-title"><?=$countheaderMenu?></h3>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">edit</i>
-                            <a href="panel/content/list/33/header-menu"><?=_dp("Düzenle")?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">grading</i>
-                        </div>
-                        <p class="card-category">Footer <?=_dp("Menü")?></p>
-                        <h3 class="card-title"><?=$countfooterMenu?></h3>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">edit</i>
-                            <a href="panel/content/list/8/footer-menu"><?=_dp("Düzenle")?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">grading</i>
-                        </div>
-                        <p class="card-category">Footer <?=_dp("Menü") ?> 2</p>
-                        <h3 class="card-title"></h3>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">edit</i>
-                            <a href="panel/content/list/16/footer-menu-2"><?=_dp("Düzenle")?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <?php if(0){?>
             <div class="row">
                 <div class="col-md-4">
