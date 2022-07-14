@@ -11,7 +11,7 @@
                <div class="footer-block">
                    <div class="title"></div>
                    <?php foreach ($thisController->footerMenu as $k => $v) { ?>
-                       <div class="art"><a href="product"><?=$v->ct_titles[0]->title?></a></div>
+                       <div class="art"><a <?=$v->ct_titles[1]->title ? 'href="' . $v->ct_titles[1]->title . '"' : '' ?>><?=$v->ct_titles[0]->title?></a></div>
                    <?php } ?>
                </div>
             </div>
@@ -21,7 +21,7 @@
                    <?php foreach ($thisController->footerContact as $k => $v) { ?>
                        <div class="art">
                            <img class="footer-cicon" src="uploads/files/<?php echo $v->ct_files[0]->fileName[0] ?? ''?>" alt="phone">
-                           <label><?=$v->ct_titles[0]->title?>:</label> <a><?=$v->ct_titles[1]->title?></a>
+                           <label><?=$v->ct_titles[0]->title?>:</label> <a <?=$v->ct_titles[2]->title ? 'href="' . $v->ct_titles[2]->title . '"' : '' ?>><?=$v->ct_titles[1]->title?></a>
                        </div>
                    <?php } ?>
                    <div class="art dn">

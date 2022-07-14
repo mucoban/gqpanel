@@ -91,7 +91,7 @@
                                                                 <label class="bmd-label-floating"><?=_dp($d_b["labelb"])?></label>
                                                                 <textarea class="form-control" rows="5"  name="<?=$tableStr?>[<?=$d->id?>][<?=$d_b["order"]?>]"
                                                                           <?=isset($d_b["disabled"]) ? "disabled" : "" ?>
-                                                                    ><?=!isset($new) ? objedengetir($items[0]->{$tableStr}, ["lang_id" => $d->id, "order" => $d_b["order"],], "value") : "" ?></textarea>
+                                                                    ><?=!isset($new) ? str_replace('<br>', PHP_EOL, objedengetir($items[0]->{$tableStr}, ["lang_id" => $d->id, "order" => $d_b["order"],], "value")) : "" ?></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
