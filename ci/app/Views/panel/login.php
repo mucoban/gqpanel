@@ -4,8 +4,7 @@
         <form class="logpag__boxForm" onsubmit="return fova_login(this)" method="post"
               action="panel/login/attempt"
               data-mode="">
-<!--            <img crossorigin="logpag__logo" src="assets/images/piktus-logo.png" alt="img">-->
-             <div class="logpag__logoText"><?=_dp("Nesibeli OJAK")?><br><?=_dp("Yönetim Paneli")?></div>
+             <div class="logpag__logoText"><?=_dp("Admin Panel")?></div>
             <input type="text" class="logpag__itext" name="uname" placeholder="<?=_dp("Kullanıcı adı")?>"><br>
             <input type="password" class="logpag__itext" name="pass" placeholder="<?=_dp("Şifre")?>"><br>
             <button class="logpag__submit">

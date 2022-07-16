@@ -607,7 +607,9 @@ class EleModel extends Model
 
                             $fieldStr = null;
                             if ($d === "ct_titles") $fieldStr = "title"; else $fieldStr = "value";
+
                             if ($d === "ct_txtbox") { $d_c = str_replace(PHP_EOL, '<br>',$d_c); }
+                            else if ($d === "ct_txteditor") { $d_c = str_replace('__esequal', '=',$d_c); }
 
                             $data[$fieldStr] = $d_c;
 

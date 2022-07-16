@@ -9,8 +9,7 @@
 <script src="assets/plugins/select2/select2.min.js"></script>
 <script src="assets/plugins/jquery-ui.min.js"></script>
 
-
-<script src="https://cdn.tiny.cloud/1/xtvakami8hu1bgflzfy9hk5alxt4s97i7dbohp5n379jdfi9/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/rstik3la6ki6xd5duvzw01xjt8a1e0t9qb28dydu4rhwf74m/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
         selector:'.js-tinymce',

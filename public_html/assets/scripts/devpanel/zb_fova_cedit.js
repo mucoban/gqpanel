@@ -2,7 +2,6 @@
 function fova_cedit(thisele) {
 
     const form = $(thisele);
-
     const isNew = form.attr("data-new") === "1" ? true : false;
 
     clearTimeout(timer);
@@ -10,8 +9,14 @@ function fova_cedit(thisele) {
 
     if (typeof(tinyMCE) !== "undefined") tinyMCE.triggerSave();
 
-    const _data = form.serialize();
-
+    const _data = form.serializeArray();
+    _data.map(function (i) {
+        if (i.name.indexOf('ct_txteditor') !== -1) {
+            i.value = i.value.replace(/=/g, '__esequal');
+        }
+        return i;
+    })
+    console.log(_data);
     $.ajax({
         url: form.attr("action"),
         method: "POST",

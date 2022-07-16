@@ -19,7 +19,7 @@ function fova_login(thisele) {
     form.attr("data-mode", "1");
 
     $.ajax({
-        url: 'http://mucoban.com/panel/login/attempt',
+        url: baseurl + '/panel/login/attempt',
         method: "POST",
         data: _data,
         success: function (result) {
