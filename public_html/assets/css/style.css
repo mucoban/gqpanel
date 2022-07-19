@@ -576,7 +576,6 @@ img {
   bottom: 0;
   right: 110px;
   transform: translate(0, 92%);
-  transition: all 0.4s;
 }
 .quick-message .bg {
   position: absolute;
@@ -585,12 +584,10 @@ img {
   width: 100%;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.32);
   border-radius: 5px 5px 0 0;
-  transition: all 0.6s;
 }
 .quick-message .content {
   position: relative;
   padding: 0px;
-  transition: all 0.6s;
 }
 .quick-message .line {
   margin-bottom: 15px;
@@ -643,12 +640,10 @@ img {
   padding: 10px 15px;
   cursor: pointer;
   text-align: center;
-  transition: all 0.3s;
 }
 .quick-message form {
   width: 50px;
   padding: 10px 10px 20px;
-  transition: all 0.4s;
 }
 .quick-message .flash-message-holder {
   display: none;
@@ -665,6 +660,21 @@ img {
 }
 .quick-message[mode=successful] .cbox {
   display: none;
+}
+.quick-message.inited {
+  transition: all 0.4s;
+}
+.quick-message.inited form {
+  transition: all 0.4s;
+}
+.quick-message.inited .icon {
+  transition: all 0.3s;
+}
+.quick-message.inited .content {
+  transition: all 0.6s;
+}
+.quick-message.inited .bg {
+  transition: all 0.6s;
 }
 .quick-message.on {
   transform: translate(0, 0%);

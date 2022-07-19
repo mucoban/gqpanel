@@ -17,8 +17,8 @@
   0 7px 10px -5px rgba(74, 71, 74, .4);
 }
 .nav-tabs .nav-item .nav-link
-{ margin: 0 5px; background: #00897b; }
-.nav-tabs .nav-item .nav-link.active {  background: #4db6ac; }
+{ margin: 0 5px; background: #ddd; color: #555 !important; }
+.nav-tabs .nav-item .nav-link.active {  background: #4db6ac; color: white !important; }
 
 .card-title,
 .card-category {

@@ -465,21 +465,16 @@ img {
   $qmDuration: .4s;
   position: fixed;  bottom: 0; right: 110px;
   transform: translate(0, 92%);
-  transition: all $qmDuration;
   .bg {    position: absolute;
     background: white;
     height: 100%;
     width: 100%;
     box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 32%);
     border-radius: 5px 5px 0 0;
-    //border-radius: 100%;
-    transition: all .6s;
   }
   .content {
     position: relative;
     padding: 0px;
-    //opacity: 0;
-    transition: all .6s;
   }
   .line {
     margin-bottom: 15px;
@@ -518,12 +513,11 @@ img {
   .icon {
     margin-bottom: 10px;
     padding: 10px 15px;
-    cursor: pointer; text-align: center; transition: all .3s;
+    cursor: pointer; text-align: center;
   }
   form {
-    //width: 230px;
     width: 50px;
-    padding: 10px 10px 20px; transition: all $qmDuration;
+    padding: 10px 10px 20px;
   }
   .flash-message-holder { display: none; }
   &[mode="loading"] {
@@ -533,6 +527,21 @@ img {
   &[mode="successful"] {
     .flash-message-holder { display: block; }
     .cbox { display: none; }
+  }
+  &.inited {
+    transition: all $qmDuration;
+    form {
+      transition: all $qmDuration;
+    }
+    .icon {
+      transition: all .3s;
+    }
+    .content {
+      transition: all .6s;
+    }
+    .bg {
+      transition: all .6s;
+    }
   }
   &.on {
     transform: translate(0, 0%); right: 90px;

@@ -16,11 +16,13 @@
 
 .nav-tabs .nav-item .nav-link {
   margin: 0 5px;
-  background: #00897b;
+  background: #ddd;
+  color: #555 !important;
 }
 
 .nav-tabs .nav-item .nav-link.active {
   background: #4db6ac;
+  color: white !important;
 }
 
 .card-title,

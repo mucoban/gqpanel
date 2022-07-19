@@ -16,7 +16,7 @@ function fova_cedit(thisele) {
         }
         return i;
     })
-    console.log(_data);
+
     $.ajax({
         url: form.attr("action"),
         method: "POST",

@@ -141,6 +141,7 @@ $('.nav-link-outer').click(function () {
 
 const quickMessage = $('.quick-message');
 const qMClose = $('.quick-message .close');
+quickMessage.addClass('inited');
 
 $('.qm-trigger').click(function () {
     if (window.innerWidth > 991) quickMessage.addClass('on');
