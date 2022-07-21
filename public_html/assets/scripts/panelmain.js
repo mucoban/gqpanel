@@ -687,6 +687,8 @@ js_eltypeadd.on("click", ".js-eltypeadd__acontItemRemovebtn", function () {
 
 /************** perfectScrollbar *******************************/
 
+$('.sidebar .sidebar-wrapper').show();
+
 $('.js-fiuploder').perfectScrollbar({
     wheelSpeed: 1,
     wheelPropagation: true,
@@ -694,7 +696,7 @@ $('.js-fiuploder').perfectScrollbar({
 });
 
 $('.cedit').perfectScrollbar({
-    wheelSpeed: 1,
+    wheelSpeed: 0.5,
     wheelPropagation: true,
     minScrollbarLength: 20
 });

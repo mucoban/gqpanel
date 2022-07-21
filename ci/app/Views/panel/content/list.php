@@ -10,14 +10,11 @@
                     >
                         <input type="hidden" name="typeId" value="<?=$typeId?>">
 
-                        <div class="card-header card-header-primary">
-                            <h4 class="card-title"><?=$cts["eleTitle"]?></h4>
-                            <p class="card-category"></p>
-                        </div>
                         <div class="card-body">
+                            <h4 class="card-body-title"><?=$cts["eleTitle"]?></h4>
                             <div class="table-responsive clist js-clist" data-mode="saving">
 
-                                <div>
+                            <div>
                                     <?php if(!strstr($_SERVER['REQUEST_URI'], '/-4/users') && (empty($showMode))){?>
                                         <button type="button" class="btn btn-primary pull-right float-right js-clist_newbtn">
                                             <span><?=_dp("NEW")?></span>

@@ -30,7 +30,7 @@
 
 <script src="https://www.cssscript.com/demo/color-picker-alpha-selection/vanilla-picker.js"></script>
 
-<script src="assets/scripts/panelmain.js?v=<?=time()?>"></script>
+<script src="assets/scripts/panelmain.js?v=<?=CJ_VERSION_PANEL?>"></script>
 
 </body>
 </html>

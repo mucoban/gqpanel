@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/images/favicon/site.webmanifest">
 
-    <link href="assets/css/style.css?v=<?=time()?>" rel="stylesheet"/>
+    <link href="assets/css/style.css?v=<?=CJ_VERSION?>" rel="stylesheet"/>
 
     <link rel="stylesheet" type="text/css" href="assets/plugins/slick/slick.css"/>
 

@@ -24,7 +24,6 @@
                             <div class="card-header card-header-tabs card-header-primary cedit__langbar">
                                 <div class="nav-tabs-navigation">
                                     <div class="nav-tabs-wrapper">
-                                        <span class="nav-tabs-title"><?=_dp("Languages")?>:</span>
                                         <ul class="nav nav-tabs" data-tabs="tabs">
                                             <?php foreach ($langs as $k => $d) { ?>
                                                 <li class="nav-item">

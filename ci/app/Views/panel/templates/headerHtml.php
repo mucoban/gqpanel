@@ -21,7 +21,7 @@
     <link href="assets/plugins/material/demo.css" rel="stylesheet" />
 
     <link href="assets/plugins/select2/select2.min.css" rel="stylesheet" />
-    <link href="assets/css/panel.css" rel="stylesheet" />
+    <link href="assets/css/panel.css?v=<?=CJ_VERSION_PANEL?>" rel="stylesheet" />
 
     <!-- Google Tag Manager -->
     <script>

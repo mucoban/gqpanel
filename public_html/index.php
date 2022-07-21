@@ -1,5 +1,11 @@
 <?php
 
+//define('CJ_VERSION', time());
+define('CJ_VERSION', 124);
+
+//define('CJ_VERSION_PANEL', time());
+define('CJ_VERSION_PANEL', 124);
+
 // Valid PHP Version?
 $minPHPVersion = '7.2';
 if (phpversion() < $minPHPVersion)
