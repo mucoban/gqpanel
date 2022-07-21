@@ -124,6 +124,24 @@ b {
 { text-transform: initial }
 .sidebar .sidebar-wrapper { display: none; }
 
+.navbar {
+  input[type="text"] {
+    $color: #607d8b;
+    &::placeholder {
+      color: $color;
+      opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $color;
+    }
+
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $color;
+    }
+  }
+}
+
 /******************************************************/
 
 .fixed-plugin {
@@ -1105,6 +1123,7 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
+    color: #607d8b !important;
 
     &:hover {
       background-color: #ccecd7 !important;
@@ -1153,6 +1172,12 @@ body {
         transform: rotate(180deg);
       }
     }
+  }
+
+  .btn-just-icon {
+    $color: #999;
+    color: #607d8b;
+    box-shadow: 0 2px 2px 0 $color, 0 3px 1px -2px $color, 0 1px 5px 0 $color;
   }
 
   &__logo {

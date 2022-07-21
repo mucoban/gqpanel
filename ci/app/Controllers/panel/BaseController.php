@@ -72,8 +72,15 @@ class BaseController extends Controller
         $this->langs = $query->getResult();
 
         if (!$this->session->has("lang_id")) {
-            $this->session->set("lang_id", $this->langs[0]->id);
-            $this->session->set("lang_abb", $this->langs[0]->abb);
+            $language_abb = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            $fl = $this->db->table('langs')
+                ->where('abb', $language_abb)
+                ->get()->getResult();
+
+            $langToBeSet = $this->db->affectedRows() === 1 ? $fl[0] : $this->langs[0];
+
+            $this->session->set("lang_id", $langToBeSet->id);
+            $this->session->set("lang_abb", $langToBeSet->abb);
         }
 
         $this->nonReadMessagecount =

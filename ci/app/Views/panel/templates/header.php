@@ -8,7 +8,7 @@
         $menuItems = [
             [
                 'icon' => '<i class="material-icons">language</i>',
-                'text' => 'Go To ' . $_SERVER['SERVER_NAME'],
+                'text' => _dp('Go to ') . $_SERVER['SERVER_NAME'],
                 'url' => base_url(),
                 '_blank' => true,
             ],
@@ -66,21 +66,21 @@
             ],
             [
                 'icon' => '<i class="material-icons">grading</i>',
-                'text' => 'Menüler',
+                'text' => 'Menus',
                 'children' => [
                     [
                         'icon' => '<i class="material-icons">flax</i>',
-                        'text' => 'Header İletişim',
+                        'text' => 'Header Contact',
                         'url' => 'panel/content/list/37/header-iletisim',
                     ],
                     [
                         'icon' => '<i class="material-icons">flax</i>',
-                        'text' => 'Header Sosyal Medya',
+                        'text' => 'Header Social Media',
                         'url' => 'panel/content/list/36/header-sosyal-medya',
                     ],
                     [
                         'icon' => '<i class="material-icons">flax</i>',
-                        'text' => 'Header Menü',
+                        'text' => 'Header Menu',
                         'url' => 'panel/content/list/33/header-menu',
                     ],
                     [
@@ -90,17 +90,17 @@
                     ],
                     [
                         'icon' => '<i class="material-icons">flax</i>',
-                        'text' => 'Footer Menü A',
+                        'text' => 'Footer Menu A',
                         'url' => 'panel/content/list/8/footer-menu',
                     ],
                     [
                         'icon' => '<i class="material-icons">flax</i>',
-                        'text' => 'Footer İletişim',
+                        'text' => 'Footer Contact',
                         'url' => 'panel/content/list/38/footer-iletisim',
                     ],
                     [
                         'icon' => '<i class="material-icons">flax</i>',
-                        'text' => 'Footer Sosyal Medya',
+                        'text' => 'Footer Social Media',
                         'url' => 'panel/content/list/17/footer-sosyal-medya',
                     ],
                     [
@@ -116,10 +116,10 @@
                 'children' => [
                     [
                         'icon' => '<i class="material-icons">flax</i>',
-                        'text' => 'Anasayfa',
+                        'text' => 'Home Page',
                         'children' => [
                             [
-                                'text' => 'Anasayfa',
+                                'text' => 'Home Page',
                                 'data-op-href' => 'panel/content/edit/42/9'
                             ],
                             [
@@ -233,9 +233,6 @@
     <div class="main-panel">
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
             <div class="container-fluid">
-                <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="javascript:;">Dashboard</a>
-                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="navbar-toggler-icon icon-bar"></span>
@@ -255,23 +252,18 @@
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:;">
-                                <i class="material-icons">dashboard</i>
-                                <p class="d-lg-none d-md-block">
-                                    Stats
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="panel/home/lang/<?php foreach ($_SESSION["langs"] as $k => $v) {
-                                echo $v->id !== $_SESSION['lang_id'] ? $v->id : '';
-                            } ?>">
-                                <i class="material-icons">language</i>
-                                <span><?=objedengetir($_SESSION["langs"], ['id' => $_SESSION['lang_id']], 'abb')?></span>
-                                <p class="d-lg-none d-md-block">
-                                    Account
-                                </p>
-                            </a>
+                            <?php foreach ($_SESSION["langs"] as $k => $d) {
+                                if ($d->id !== $_SESSION['lang_id']) {
+                                ?>
+                                <a class="nav-link" href="panel/home/lang/<?=$d->id?>">
+                                    <i class="material-icons">language</i>
+                                    <span><?=objedengetir($_SESSION["langs"], ['id' => $d->id], 'abb')?></span>
+                                    <p class="d-lg-none d-md-block">
+                                        Account
+                                    </p>
+                                </a>
+                            <?php break; }
+                            }  ?>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                 <?php foreach ($_SESSION["langs"] as $k => $d) { ?>
                                     <a class="dropdown-item" href="panel/home/lang/<?=$d->id?>"><?=$d->abb?></a>

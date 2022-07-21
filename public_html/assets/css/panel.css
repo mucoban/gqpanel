@@ -127,6 +127,20 @@
   display: none;
 }
 
+.navbar input[type=text]::placeholder {
+  color: #607d8b;
+  opacity: 1;
+  /* Firefox */
+}
+.navbar input[type=text]:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #607d8b;
+}
+.navbar input[type=text]::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #607d8b;
+}
+
 /******************************************************/
 .fixed-plugin {
   display: none;
@@ -870,6 +884,7 @@ body.-loginPage {
   display: flex;
   justify-content: left;
   align-items: center;
+  color: #607d8b !important;
 }
 .cpanel .nav-link:hover {
   background-color: #ccecd7 !important;
@@ -904,6 +919,10 @@ body.-loginPage {
 }
 .cpanel .nav-item.on > .nav-link .svg {
   transform: rotate(180deg);
+}
+.cpanel .btn-just-icon {
+  color: #607d8b;
+  box-shadow: 0 2px 2px 0 #999, 0 3px 1px -2px #999, 0 1px 5px 0 #999;
 }
 .cpanel__logoText {
   text-transform: capitalize;

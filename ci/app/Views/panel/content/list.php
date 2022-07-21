@@ -11,7 +11,7 @@
                         <input type="hidden" name="typeId" value="<?=$typeId?>">
 
                         <div class="card-body">
-                            <h4 class="card-body-title"><?=$cts["eleTitle"]?></h4>
+                            <h4 class="card-body-title"><?=_dp($cts["eleTitle"])?></h4>
                             <div class="table-responsive clist js-clist" data-mode="saving">
 
                             <div>

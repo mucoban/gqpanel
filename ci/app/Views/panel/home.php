@@ -8,12 +8,11 @@
                         <?php if ($thisController->session->lang_abb === 'tr') { ?>
                             <h2>Admin Panele hoş geldiniz</h2>
                             <p>
-                                You can create, edit, delete all elements in your website with this admin panel.
+                                Bu panelde, websitenizdeki bütün elemanları oluşturabilir, düzenleyebilir veya kaldırabilirsiniz
                                 <br>
-                                Just navigate to the related section in left side menu and you will find the element you want to make changes on.
+                                Soldaki menüden ilgi bölüme giderek değiştirmek istediğiniz elemanı bulabilirsiniz.
                                 <br>
-                                If you can't find your element, you can use the search bar above.
-
+                                Sağ üst kısımdaki arama kutucuğundan da istediğiniz elemana ulaşabilirsiniz.
                             </p>
                         <?php } else { ?>
                             <h2>Welcome to Admin Panel</h2>
